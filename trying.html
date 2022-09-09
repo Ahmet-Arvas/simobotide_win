@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>browser-amd-editor</title>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	</head>
+	<body>
+		<h2>Monaco Editor Sample</h2>
+		<div id="container" style="width: 800px; height: 600px; border: 1px solid grey"></div>
+
+		<!-- OR ANY OTHER AMD LOADER HERE INSTEAD OF loader.js -->
+		<script>
+			require.config({ paths: { vs: './node_modules/monaco-editor/min/vs' } });
+
+require(['vs/editor/editor.main'], function () {
+// Through the options literal, the behaviour of the editor can be easily customized.
+// Here are a few examples of config options that can be passed to the editor.
+// You can also call editor.updateOptions at any time to change the options.
+
+var editor = monaco.editor.create(document.getElementById('editor'), {
+    value: "// First line\nfunction hello() {\n\talert('Hello world!');\n}\n// Last line",
+    language: 'text/html',
+    lineNumbers: 'on',
+    scrollBeyondLastLine: false,
+    readOnly: false,
+    theme: 'vs-dark'
+});
+});
+
+		</script>
+	</body>
+</html>

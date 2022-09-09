@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Simobot IDE</title>
+<!--/----------IMPORTS FOR ALL PAGES------------------->
+<!--|--><link rel="stylesheet" href="node_modules/notyf/notyf.min.css">
+<!--|--><link rel="stylesheet" href="assets/css/main.css">
+<!--|--><link rel="stylesheet" href="node_modules/boxicons/css/boxicons.min.css">
+<!--|---PROMPT SYSTEM-->
+<!--|-->	<script src="assets/js/vex.combined.min.js"></script>
+<!--|-->	<script>vex.defaultOptions.className = 'vex-theme-wireframe'</script>
+<!--|-->	<link rel="stylesheet" href="assets/css/prompt.css" />
+<!--|-->	<link rel="stylesheet" href="assets/css/navigation_prompt.css" />
+<!--|-->	<link rel="stylesheet" href="assets/css/normal_prompt.css" />
+	<!--For this page only-->
+  <link rel="stylesheet" href="assets/css/workspace.css" />
+  <link rel="stylesheet" href="node_modules/xterm/css/xterm.css" />
+  <link rel="stylesheet" href="assets/css/python.html.css">
+  
+  <script>
+    var monacoeditor;
+    var nodeRequire = global.require;
+  </script>
+  <script src="./node_modules/monaco-editor/min/vs/loader.js"></script>
+</head>
+<body>
+  <div id="wrapper">
+    <header>
+      <a onclick="dialogCreator.homeDialog();" class="home_icon">
+        <i class='bx bx-home-smile bx-md' ></i>
+      </a>
+      <div id="error"></div>
+      <div id="projectname"></div>
+      <div class="rightheader">
+        <div class="select-dropdown">
+          <select id="portSelect" ></select>
+        </div>
+        <a class='uploadbtn' onclick="vex.dialog.alert({unsafeMessage: document.getElementById('slotselect').innerHTML})"><i class='bx bx-upload bx-md' ></i><span>Upload Code to Simobot</span></a>
+        <a class='savebtn' onclick="projectManager.saveProject('python', monacoeditor.getValue())"><i class='bx bx-save bx-md' ></i><span>Save Project</span></a>
+        <div id="slotselect" style="display:none">
+          <a class="projectCard" onclick="serial.codetoFile('slot1.py', monacoeditor.getValue())">Slot 1</a>
+          <a class="projectCard" onclick="serial.codetoFile('slot2.py', monacoeditor.getValue())">Slot 2</a>
+          <a class="projectCard" onclick="serial.codetoFile('slot3.py', monacoeditor.getValue())">Slot 3</a>
+          <a class="projectCard" onclick="serial.codetoFile('slot4.py', monacoeditor.getValue())">Slot 4</a>
+          <a class="projectCard" onclick="serial.codetoFile('slot5.py', monacoeditor.getValue())">Slot 5</a>
+        </div>
+      </div>
+      <button onclick="  ">BA</button>
+
+    </header>
+    <a class="liveCodebtn" onclick="serial.sendLiveCode(monacoeditor.getValue())"><i class='bx bx-play bx-lg' ></i></a>
+    <div id="main">
+      <article>
+        <div id="editor">
+        </div>
+      </article>
+      <aside id="aside">
+        <div id="edu_head">
+            <i class='bx bx-book-content bx-md' ></i>
+            <span>Micropython Guide</span>
+        </div>
+        <div id="edu_content" class="customScrollbar">
+          There is for Micropython explanation.
+        </div>
+        <br>
+        <a id="close_aside" class="close_aside" id="close_aside"><i class='bx bx-dots-vertical-rounded' style="font-size: 40px; position: absolute;"></i></a>
+      </aside>
+    </div>
+    <a id="close_footer" style="bottom: 20vh; left: 50%;"><i class='bx bx-dots-horizontal-rounded' style="font-size: 40px; position: absolute;"></i></a>
+    <a id="fullscreen_btn"><i class='bx bx-fullscreen'></i></a>
+    <footer id="footer">
+        <div id="terminal-container" class="terminal"></div>
+    </footer>
+  </div>
+    <xml id="xml_toolbox" style="display: none"></xml>
+  <script>
+    require.config({ paths: { vs: './node_modules/monaco-editor/min/vs' } });
+
+    require(['vs/editor/editor.main'], function () {
+    // Through the options literal, the behaviour of the editor can be easily customized.
+    // Here are a few examples of config options that can be passed to the editor.
+    // You can also call editor.updateOptions at any time to change the options.
+    monacoeditor = monaco.editor.create(document.getElementById('editor'), {
+        value: global.require('./assets/js/python.html.js'),
+        language: 'python',
+        lineNumbers: 'on',
+        scrollBeyondLastLine: false,
+        readOnly: false,
+        theme: 'vs',
+        scrollbar: {
+          useShadows: false,
+          verticalHasArrows: true,
+          horizontalHasArrows: true,
+          vertical: 'visible',
+          horizontal: 'visible',
+          verticalScrollbarSize: 17,
+          horizontalScrollbarSize: 17,
+          arrowSize: 30
+        }
+    });
+    });
+    // Save Monaco's amd require and restore Node's require
+    var amdRequire = global.require;
+    global.require = nodeRequire;
+    // ... remainder of example below
+    const { Notyf } = require('notyf');
+    const updateManager = require('./assets/js/updateManager.js');
+    const notyf = new Notyf({types: [{dismissible: true}]});
+    const dialogCreator = require('./assets/js/navigation.js');
+    const serial = require('./assets/js/serial.js')
+    const projectManager = require('./assets/js/project_manager.js');
+    const hotkeys = require('hotkeys-js');
+    hotkeys('ctrl+s, command+s', function() {
+      projectManager.saveProject('python', monacoeditor.getValue())
+    });
+    hotkeys.filter = function(event){
+      return true;
+    }
+
+    function controlVersion(version){
+      if(1.6 > parseFloat(version)){
+        console.log("New Update");
+      }
+    }
+  </script>
+</body>
+</html>

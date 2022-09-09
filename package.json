@@ -1,0 +1,57 @@
+{
+    "name": "simobotide",
+    "productName": "Simobot IDE",
+    "version": "1.0.0",
+    "description": "Programming IDE for Simobot",
+    "author": "Ahmet Arvas",
+    "license": "Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)",
+    "homepage": "https://simobot.com/",
+    "main": "electronApp.js",
+    "build": {
+        "appId": "com.simobot.simobotide",
+        "win": {
+            "target": "nsis",
+            "icon": "build/icon.ico"
+        },
+        "nsis": {
+            "oneClick": "false",
+            "allowToChangeInstallationDirectory": "false"
+        }
+    },
+    "keywords": [
+        "blockly",
+        "BLOCKLY",
+        "simobot",
+        "raspberry",
+        "python",
+        "serialport",
+        "SERIALPORT"
+    ],
+    "devDependencies": {
+        "electron": "^19.0.6",
+        "electron-builder": "^23.1.0"
+    },
+    "scripts": {
+        "pack": "electron-builder --win --ia32",
+        "dist": "electron-builder",
+        "start": "electron ."
+    },
+    "dependencies": {
+        "@codemirror/lang-python": "github:codemirror/lang-python",
+        "axios": "^0.27.2",
+        "blockly": "^8.0.3",
+        "boxicons": "^2.1.2",
+        "codemirror": "^6.0.1",
+        "hotkeys-js": "^3.9.5",
+        "i18n": "^0.15.0",
+        "i18next": "^21.9.1",
+        "language-translator": "^1.2.6",
+        "monaco-editor": "^0.34.0",
+        "node-gyp": "^9.0.0",
+        "notyf": "^3.10.0",
+        "serialport": "^10.4.0",
+        "shell": "^0.9.4",
+        "xterm": "^4.19.0",
+        "xterm-addon-fit": "^0.5.0"
+    }
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Simobot IDE</title>
+<!--/----------IMPORTS FOR ALL PAGES------------------->
+<!--|--><link rel="stylesheet" href="node_modules/notyf/notyf.min.css">
+<!--|--><link rel="stylesheet" href="assets/css/main.css">
+<!--|--><link rel="stylesheet" href="node_modules/boxicons/css/boxicons.min.css">
+<!--|---PROMPT SYSTEM-->
+<!--|-->	<script src="assets/js/vex.combined.min.js"></script>
+<!--|-->	<script>vex.defaultOptions.className = 'vex-theme-wireframe'</script>
+<!--|-->	<link rel="stylesheet" href="assets/css/prompt.css" />
+<!--|-->	<link rel="stylesheet" href="assets/css/navigation_prompt.css" />
+<!--|-->	<link rel="stylesheet" href="assets/css/normal_prompt.css" />
+	<!--For this page only-->
+	<link rel="stylesheet" href="assets/css/index.html.css" />
+</head>
+<body id="body">
+<div id="newProject" style="display: inline;">
+
+</div>
+<div id="mainMenu" style="display: none;">
+
+</div>
+<div id="updatenotifier" style="cursor: pointer;position: absolute; background-color: rgb(146, 146, 255); color: white; margin: auto; top: 0; left: 0; padding: 5px; border-radius: 0px 0px 8px 0px; display: none;">New Update</div>
+<div class="container">
+	<a onclick="dialogCreator.homeDialog()" class="nav_btn">
+		<i class='bx bx-home-smile'></i>
+		<span>Home</span>
+		<p>Explore learning materials.</p>
+	</a>
+	<a onclick="dialogCreator.selectIdeType()" class="nav_btn">
+		<i class='bx bxs-file-plus'></i>
+		<span>New Project</span>
+		<p>Explore, create and improve your brain.</p>
+	</a>
+	<div id="update" style="display: flex;"></div>
+</div>
+</body>
+<script>
+	/**
+	 * require I18n with capital I as constructor
+	 */
+	const i18next = require('i18next')
+	i18next.init({
+	lng: 'en', // if you're using a language detector, do not define the lng option
+	debug: true,
+	resources: {
+	en: {
+		translation: {
+		"key": "hello world"
+		}
+	},
+	tr:	{
+		translation: {
+		"key": "Merhaba Dunya"
+		}
+	}
+	}
+	});
+	i18next.changeLanguage('tr', (err, t) => {
+	if (err) return console.log('something went wrong loading', err);
+		t('key'); // -> same as i18next.t
+	});
+	// initialized and ready to go!
+	// i18next is already initialized, because the translation resources where passed via init function
+	document.getElementById('update').innerHTML = i18next.t('key');
+
+	var promptData;
+	const projectManager = require('./assets/js/project_manager.js');
+	const dialogCreator = require('./assets/js/navigation.js');
+	dialogCreator.homeDialog();
+	const { Notyf } = require('notyf');
+    const notyf = new Notyf();
+	const updateManager = require('./assets/js/updateManager.js');
+	updateManager.checkAppUpdate(1);
+	require("./preload.js");
+</script>
+</html>

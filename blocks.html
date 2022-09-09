@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Simobot IDE</title>
+<!--/----------IMPORTS FOR ALL PAGES------------------->
+<!--|--><link rel="stylesheet" href="node_modules/notyf/notyf.min.css">
+<!--|--><link rel="stylesheet" href="assets/css/main.css">
+<!--|--><link rel="stylesheet" href="node_modules/boxicons/css/boxicons.min.css">
+<!--|---PROMPT SYSTEM-->
+<!--|-->	<script src="assets/js/vex.combined.min.js"></script>
+<!--|-->	<script>vex.defaultOptions.className = 'vex-theme-wireframe'</script>
+<!--|-->	<link rel="stylesheet" href="assets/css/prompt.css" />
+<!--|-->	<link rel="stylesheet" href="assets/css/navigation_prompt.css" />
+<!--|-->	<link rel="stylesheet" href="assets/css/normal_prompt.css" />
+	<!--For this page only-->
+  <script src="assets/js/toolbox.js"></script>
+  <link rel="stylesheet" href="assets/css/workspace.css" />
+  <link rel="stylesheet" href="node_modules/xterm/css/xterm.css" />
+  <link rel="stylesheet" href="node_modules/notyf/notyf.min.css">
+  <link rel="stylesheet" href="assets/css/blocks.html.css">
+</head>
+<body>
+  <div id="wrapper">
+    <header>
+      <a onclick="dialogCreator.homeDialog();" class="home_icon">
+        <i class='bx bx-home-smile bx-md' ></i>
+      </a>
+      <div id="projectname"></div>
+      <div class="rightheader">
+        <div class="select-dropdown">
+          <select id="portSelect" ></select>
+        </div>
+        <a class='uploadbtn' onclick="vex.dialog.alert({unsafeMessage: document.getElementById('slotselect').innerHTML })"><i class='bx bx-upload bx-md' ></i><span>Save Code to Simobot</span></a>
+        <a class='savebtn' onclick="projectManager.saveProject('blocks', Blockly.serialization.workspaces.save(blocklyScript.workspace))"><i class='bx bx-save bx-md' ></i><span>Save Project</span></a>
+        <div id="slotselect" class="slotselect" style="display:none">
+          <a class="slotlinks" onclick="serial.codetoFile('slot1.py', document.getElementById('textarea').value)">Slot 1</a>
+        </div>
+      </div>
+    </header>
+    <div id="main">
+      <article>
+        <div id="blocklyArea"></div>
+      </article>
+    </div>
+    <footer id="footer">
+      <div id="terminal-container" class="terminal" style="height:20vh"></div>
+    </footer>
+  </div>
+    <div id="blocklyDiv" style="position: absolute">
+      <a id="close_footer"><i class='bx bx-dots-horizontal-rounded' style="font-size: 40px; position: absolute;"></i></a>
+      <a class="liveCodebtn" onclick="serial.sendLiveCode(document.getElementById('textarea').value)"><i class='bx bx-play bx-lg' ></i></a>
+      <a id="close_aside" class="close_aside" id="close_aside"><i class='bx bx-dots-vertical-rounded' style="font-size: 40px; position: absolute;"></i></a>
+      <aside id="aside">
+        <div id="edu_head">
+            <i class='bx bx-book-content bx-md' ></i>
+            <span>Ders 1: Pico Nedir</span>
+        </div>
+        <div id="edu_content" class="customScrollbar">
+          <div id="error"></div>
+          <textarea id="textarea" rows="8" cols="8"></textarea>
+        </div>
+        <br>
+      </aside>
+    </div>
+    <xml id="xml_toolbox" style="display: none"></xml>
+  <script>
+    const projectManager = require('./assets/js/project_manager.js');
+    const blocks_script = require('./assets/js/blocks.html.js')
+    const { Notyf } = require('notyf');
+    const notyf = new Notyf();
+    const Blockly = require('blockly');
+    const dialogCreator = require('./assets/js/navigation.js');
+    const serial = require('./assets/js/serial.js')
+    const blocklyScript = require('./assets/js/blockly.js');
+    const updateManager = require('./assets/js/updateManager.js');
+  </script>
+</body>
+</html>
