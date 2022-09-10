@@ -49,6 +49,7 @@
         "monaco-editor": "^0.34.0",
         "node-gyp": "^9.0.0",
         "notyf": "^3.10.0",
+        "prevent-unload": "^2.0.0",
         "serialport": "^10.4.0",
         "shell": "^0.9.4",
         "xterm": "^4.19.0",

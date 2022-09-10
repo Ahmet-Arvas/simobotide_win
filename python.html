@@ -37,8 +37,8 @@
         <div class="select-dropdown">
           <select id="portSelect" ></select>
         </div>
-        <a class='uploadbtn' onclick="vex.dialog.alert({unsafeMessage: document.getElementById('slotselect').innerHTML})"><i class='bx bx-upload bx-md' ></i><span>Upload Code to Simobot</span></a>
-        <a class='savebtn' onclick="projectManager.saveProject('python', monacoeditor.getValue())"><i class='bx bx-save bx-md' ></i><span>Save Project</span></a>
+        <a class='yellowbtn' onclick="vex.dialog.alert({unsafeMessage: document.getElementById('slotselect').innerHTML})"><i class='bx bx-upload bx-md' ></i><span>Upload Code to Simobot</span></a>
+        <a class='yellowbtn' onclick="projectManager.saveProject('python', monacoeditor.getValue())"><i class='bx bx-save bx-md' ></i><span>Save Project</span></a>
         <div id="slotselect" style="display:none">
           <a class="projectCard" onclick="serial.codetoFile('slot1.py', monacoeditor.getValue())">Slot 1</a>
           <a class="projectCard" onclick="serial.codetoFile('slot2.py', monacoeditor.getValue())">Slot 2</a>

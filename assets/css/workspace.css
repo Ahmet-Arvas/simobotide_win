@@ -90,20 +90,7 @@ header{
   margin-left: auto;
 }
 
-.uploadbtn{
-  height: 100%;
-  margin-top: 1px;
-  width: 180px;
-  margin-right: 5px;
-  align-items: center;
-  border-radius: 5px;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  background-color: #F4E04D;
-}
-
-.savebtn{
+.yellowbtn{
   height: 100%;
   margin-top: 1px;
   width: 150px;
@@ -115,13 +102,13 @@ header{
   flex-direction: row;
   background-color: #F4E04D;
 }
-.savebtn span, .uploadbtn span{
+.yellowbtn span{
   font-size: 15px;
   width: 100%;
   text-align: center;
 }
 
-.savebtn:hover, .uploadbtn:hover{
+.yellowbtn:hover{
   background-color: #ccc671;
 }
 

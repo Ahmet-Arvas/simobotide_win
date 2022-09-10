@@ -32,8 +32,8 @@
         <div class="select-dropdown">
           <select id="portSelect" ></select>
         </div>
-        <a class='uploadbtn' onclick="vex.dialog.alert({unsafeMessage: document.getElementById('slotselect').innerHTML })"><i class='bx bx-upload bx-md' ></i><span>Save Code to Simobot</span></a>
-        <a class='savebtn' onclick="projectManager.saveProject('blocks', Blockly.serialization.workspaces.save(blocklyScript.workspace))"><i class='bx bx-save bx-md' ></i><span>Save Project</span></a>
+        <a class='yellowbtn' onclick="vex.dialog.alert({unsafeMessage: document.getElementById('slotselect').innerHTML })"><i class='bx bx-upload bx-md' ></i><span>Save Code to Simobot</span></a>
+        <a class='yellowbtn' onclick="projectManager.saveProject('blocks', Blockly.serialization.workspaces.save(blocklyScript.workspace))"><i class='bx bx-save bx-md' ></i><span>Save Project</span></a>
         <div id="slotselect" class="slotselect" style="display:none">
           <a class="slotlinks" onclick="serial.codetoFile('slot1.py', document.getElementById('textarea').value)">Slot 1</a>
         </div>
