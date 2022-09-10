@@ -134,7 +134,9 @@ class CreateDialog{
         })
         const controls = document.querySelectorAll(".tab-control");
         const tabs = document.querySelectorAll(".tab");
-
+        const tabdiv = document.getElementById("tab-div");
+        tabdiv.scrollTop = 0;
+        
         // display none for 1-length tabs
         for (let i = 1; i < tabs.length; i++) {
         tabs[i].style.display = "none";
