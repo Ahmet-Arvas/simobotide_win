@@ -21,7 +21,7 @@ class projectManagement{
         let name = projectname;
         let type = ideType;
 
-        let savedir = userHomeDir+'/Documents/Simobot IDE/' + name.replace(/\W/g, '')  + '/';
+        let savedir = userHomeDir+'/Documents/Simobot IDE/Projects/' + name.replace(/\W/g, '')  + '/';
         savedir = savedir.replace(/\\/g, "/");
 
         let savefile = savedir + 'project.json';
@@ -48,10 +48,10 @@ let jsondata =`
     * @param {string} name Project's name for opening a project.
     */
     openProject(name){
-        fs.readdir(userHomeDir+'/Documents/Simobot IDE/', (err, files) => {
+        fs.readdir(userHomeDir+'/Documents/Simobot IDE/Projects/', (err, files) => {
             files.forEach(file => {
                 try{
-                    let rawdata = fs.readFileSync(userHomeDir + "/Documents/Simobot IDE/"+ file +"/project.json");
+                    let rawdata = fs.readFileSync(userHomeDir + "/Documents/Simobot IDE/Projects/"+ file +"/project.json");
                     if(rawdata){
                         let data = JSON.parse(rawdata);
                         if(data["name"] == name){
@@ -91,7 +91,7 @@ let jsondata =`
                     + bbox.width + '" height="' + bbox.height + '" viewBox=" ' + bbox.x + ' ' + bbox.y + ' ' + bbox.width + ' ' + bbox.height + '">' +
                     css + '">' + content + '</svg>'; 
                 
-                let rawdata = fs.readFileSync(userHomeDir + "/Documents/Simobot IDE/"+ this.parseURLParams(location.href)["name"] +"/project.json");
+                let rawdata = fs.readFileSync(userHomeDir + "/Documents/Simobot IDE/Projects/"+ this.parseURLParams(location.href)["name"] +"/project.json");
                 if(rawdata){
                     projectData = JSON.parse(rawdata);
                 }
@@ -103,9 +103,9 @@ let jsondata =`
     "edu" :"`+ projectData["edu"] +`"
 }
 `
-                fs.writeFileSync(userHomeDir + "/Documents/Simobot IDE/"+ this.parseURLParams(location.href)["name"]+"/project.json", jsondata, 'utf-8'); 
-                fs.writeFileSync(userHomeDir + "/Documents/Simobot IDE/"+ this.parseURLParams(location.href)["name"]+"/blocks.svg", xml);
-                fs.writeFileSync(userHomeDir + "/Documents/Simobot IDE/"+ this.parseURLParams(location.href)["name"]+"/project.blocks", JSON.stringify(data), 'utf-8'); 
+                fs.writeFileSync(userHomeDir + "/Documents/Simobot IDE/Projects/"+ this.parseURLParams(location.href)["name"]+"/project.json", jsondata, 'utf-8'); 
+                fs.writeFileSync(userHomeDir + "/Documents/Simobot IDE/Projects/"+ this.parseURLParams(location.href)["name"]+"/blocks.svg", xml);
+                fs.writeFileSync(userHomeDir + "/Documents/Simobot IDE/Projects/"+ this.parseURLParams(location.href)["name"]+"/project.blocks", JSON.stringify(data), 'utf-8'); 
                 notyf.success({message: 'Project was saved!', dismissible: true});
             } catch(e) {
                 notyf.error({message: "Error: " + e, dismissible: true});
@@ -113,7 +113,7 @@ let jsondata =`
         }
         else{
             try {
-                let rawdata = fs.readFileSync(userHomeDir + "/Documents/Simobot IDE/"+ this.parseURLParams(location.href)["name"] +"/project.json");
+                let rawdata = fs.readFileSync(userHomeDir + "/Documents/Simobot IDE/Projects/"+ this.parseURLParams(location.href)["name"] +"/project.json");
                 if(rawdata){
                     projectData = JSON.parse(rawdata);
                 }
@@ -125,8 +125,8 @@ let jsondata =`
     "edu" :"`+ projectData["edu"] +`"
 }
 `
-                fs.writeFileSync(userHomeDir + "/Documents/Simobot IDE/"+ this.parseURLParams(location.href)["name"]+"/project.json", jsondata, 'utf-8'); 
-                fs.writeFileSync(userHomeDir + "/Documents/Simobot IDE/"+ this.parseURLParams(location.href)["name"]+"/project.py", data, 'utf-8'); 
+                fs.writeFileSync(userHomeDir + "/Documents/Simobot IDE/Projects/"+ this.parseURLParams(location.href)["name"]+"/project.json", jsondata, 'utf-8'); 
+                fs.writeFileSync(userHomeDir + "/Documents/Simobot IDE/Projects/"+ this.parseURLParams(location.href)["name"]+"/project.py", data, 'utf-8'); 
                 notyf.success({message: 'Project was saved!', dismissible: true});
             } catch(e) {
                 notyf.error({message: "Error: " + e, dismissible: true});
@@ -139,13 +139,13 @@ let jsondata =`
     * @param {string} name Takes a name for delete project.
     */
     deleteProject(name){
-        let files = fs.readdirSync(userHomeDir+'/Documents/Simobot IDE/');
+        let files = fs.readdirSync(userHomeDir+'/Documents/Simobot IDE/Projects/');
         files.forEach(file => {
-            let rawdata = fs.readFileSync(userHomeDir + "/Documents/Simobot IDE/"+ file +"/project.json");
+            let rawdata = fs.readFileSync(userHomeDir + "/Documents/Simobot IDE/Projects/"+ file +"/project.json");
             if(rawdata){
                 let data = JSON.parse(rawdata);
                 if(data["name"] == name){
-                    fs.rm(userHomeDir + "/Documents/Simobot IDE/"+ file, { recursive: true }, (err) => {
+                    fs.rm(userHomeDir + "/Documents/Simobot IDE/Projects/"+ file, { recursive: true }, (err) => {
                         if (err) {
                             return notyf.error({message: err, dismissible: true});
                         }
@@ -165,7 +165,7 @@ let jsondata =`
     * For syncing page (Page name etc)
     */
     syncPage(){
-        let rawdata = fs.readFileSync(userHomeDir + "/Documents/Simobot IDE/"+ this.parseURLParams(location.href)["name"] +"/project.json");
+        let rawdata = fs.readFileSync(userHomeDir + "/Documents/Simobot IDE/Projects/"+ this.parseURLParams(location.href)["name"] +"/project.json");
         if(rawdata){
             let data = JSON.parse(rawdata);
             globalThis.projectInfo = data;

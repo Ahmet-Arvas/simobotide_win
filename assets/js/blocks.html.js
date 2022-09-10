@@ -20,8 +20,8 @@ window.onbeforeunload = function(){
     serial.closePort(1);
 };
 
-if (fs.existsSync(userHomeDir+'/Documents/Simobot IDE/' + projectManager.parseURLParams(location.href)["name"] + '/project.blocks')){
-    let data = JSON.parse(fs.readFileSync(userHomeDir + "/Documents/Simobot IDE/"+ projectManager.parseURLParams(location.href)["name"] +"/project.blocks", {encoding:'utf8', flag:'r'}));
+if (fs.existsSync(userHomeDir+'/Documents/Simobot IDE/Projects/' + projectManager.parseURLParams(location.href)["name"] + '/project.blocks')){
+    let data = JSON.parse(fs.readFileSync(userHomeDir + "/Documents/Simobot IDE/Projects/"+ projectManager.parseURLParams(location.href)["name"] +"/project.blocks", {encoding:'utf8', flag:'r'}));
     if(data){
         Blockly.serialization.workspaces.load(data, blocklyScript.workspace);
     }

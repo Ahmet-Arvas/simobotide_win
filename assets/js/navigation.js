@@ -210,10 +210,10 @@ class CreateDialog{
         var cardsHtmlforrp = "";;
         var cardsHtmlforProjects = "";
         var dataArrayCounter = 0;            
-        fs.readdir(userHomeDir+'/Documents/Simobot IDE/', (err, files) => {
+        fs.readdir(userHomeDir+'/Documents/Simobot IDE/Projects/', (err, files) => {
             files.forEach(file => {
             try {
-                let rawdata = fs.readFileSync(userHomeDir + "/Documents/Simobot IDE/"+ file +"/project.json");
+                let rawdata = fs.readFileSync(userHomeDir + "/Documents/Simobot IDE/Projects/"+ file +"/project.json");
                 if(rawdata){
                     let data = JSON.parse(rawdata);
                     dataArray[dataArrayCounter] = data;
@@ -232,8 +232,8 @@ class CreateDialog{
             sortedforrp.forEach(element => {
                 let photocontent;
                 if(element["type"] == "blocks"){
-                    if(fs.existsSync(userHomeDir+'/Documents/Simobot IDE/' + element["name"].replace(/\W/g, '') + "/blocks.svg") ){
-                        photocontent = "<img src=\"" + userHomeDir+'/Documents/Simobot IDE/' + element["name"].replace(/\W/g, '') + "/blocks.svg\" style=\"max-width: 100%; max-height: 100%;\">"; 
+                    if(fs.existsSync(userHomeDir+'/Documents/Simobot IDE/Projects/' + element["name"].replace(/\W/g, '') + "/blocks.svg") ){
+                        photocontent = "<img src=\"" + userHomeDir+'/Documents/Simobot IDE/Projects/' + element["name"].replace(/\W/g, '') + "/blocks.svg\" style=\"max-width: 100%; max-height: 100%;\">"; 
                     }else{
                         photocontent = "<img src=\"images/puzzle.gif\" style=\"max-width: 100%; max-height: 100%;\">";
                     }
@@ -247,8 +247,8 @@ class CreateDialog{
             sorted.forEach(element => {
                 let photocontent;
                 if(element["type"] == "blocks"){
-                    if(fs.existsSync(userHomeDir+'/Documents/Simobot IDE/' + element["name"].replace(/\W/g, '') + "/blocks.svg") ){
-                        photocontent = "<img src=\"" + userHomeDir+'/Documents/Simobot IDE/' + element["name"].replace(/\W/g, '') + "/blocks.svg\" style=\"max-width: 100%; max-height: 100%;\">"; 
+                    if(fs.existsSync(userHomeDir+'/Documents/Simobot IDE/Projects/' + element["name"].replace(/\W/g, '') + "/blocks.svg") ){
+                        photocontent = "<img src=\"" + userHomeDir+'/Documents/Simobot IDE/Projects/' + element["name"].replace(/\W/g, '') + "/blocks.svg\" style=\"max-width: 100%; max-height: 100%;\">"; 
                     }else{
                         photocontent = "<img src=\"images/puzzle.gif\" style=\"max-width: 100%; max-height: 100%;\">";
                     }
@@ -341,7 +341,7 @@ class CreateDialog{
                 }
             }
         });*/
-        if (fs.existsSync(userHomeDir+'/Documents/Simobot IDE/' + form_projectname.replace(/\W/g, '')  + '/')){
+        if (fs.existsSync(userHomeDir+'/Documents/Simobot IDE/Projects/' + form_projectname.replace(/\W/g, '')  + '/')){
             answer = 1     
         }
         return answer;
