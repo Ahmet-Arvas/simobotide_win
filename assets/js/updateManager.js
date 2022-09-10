@@ -12,7 +12,7 @@ class updateManagement{
         var self = this;
         axios.get('https://simobot.com/api/versioncontrol/check.json')
         .then(function (response) {
-            if(parseFloat(response["data"]["version"]) > 0.9 ){
+            if(parseFloat(response["data"]["version"]) > 1.0 ){
                 console.log(response);
                 promptData = `
                 New Update! Simobot app update <br>
@@ -68,7 +68,28 @@ class updateManagement{
     }
 
     firmwareCheck(){
-        serial.sendResponse('print(\'1.3\') \n\r').then(result =>  controlVersion(result));
+        return new Promise(function(resolve,reject){
+            serial.sendResponse('print(\'1.3\') \n\r').then((result) => {
+                axios.get('https://simobot.com/api/firmwarecontrol/check.json')
+                .then(function (response) {
+                    let dataBox = [];
+                    if(parseFloat(1.5) > parseFloat(result)){ 
+                        dataBox[0] = 1;
+                        dataBox[1] = response["data"]["code"];
+                        resolve(dataBox);
+                    }
+                    else{
+                        notyf.success({message: "No New Updates", dismissible: true});
+                        dataBox[0] = 0;
+                        resolve(dataBox);
+                    }
+                })
+                .catch(function (error) {
+                    notyf.error({message: error, dismissible: true});
+                    console.log(error);
+                })
+            });
+        });
     }
 }
 

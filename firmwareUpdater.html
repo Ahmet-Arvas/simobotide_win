@@ -45,14 +45,21 @@
             updateFirmware();
         }
     });
-
+    function detectUpdate(){
+        updateManager.firmwareCheck().then((value) => {
+          console.log(value);
+        });
+      }
     function updateFirmware(){
-        vex.dialog.open({
+      
+      vex.dialog.open({
         unsafeMessage: `
         <div style="">
-          
+          <a onclick="detectUpdate()">Detect Update and Install</a>
+          <a onclick="location.href='index.html'">Return to Home</a>
         </div>
-        `,
+        ` 
+        ,
         showCloseButton: false,
         escapeButtonCloses: false,
         overlayClosesOnClick: false,
@@ -61,7 +68,9 @@
         appendLocation: 'body',
         className: 'big_dialog',
         closeAllOnPopState: false,
-    })
+      })
+      
+      
     }
     
   </script>
