@@ -18,6 +18,7 @@ portSelect.addEventListener("change", function(event){
 
 window.onbeforeunload = function(){
     serial.closePort(1);
+    projectManager.saveProject('blocks', Blockly.serialization.workspaces.save(blocklyScript.workspace))
 };
 
 if (fs.existsSync(userHomeDir+'/Documents/Simobot IDE/Projects/' + projectManager.parseURLParams(location.href)["name"] + '/project.blocks')){

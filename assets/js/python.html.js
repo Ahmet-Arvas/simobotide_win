@@ -11,6 +11,7 @@ var footer = document.getElementById('footer');
 var fullscreen_btn = document.getElementById('fullscreen_btn');
 
 window.onbeforeunload = function(){
+    projectManager.saveProject('python', monacoeditor.getValue())
     serial.closePort(1);
 };
 
