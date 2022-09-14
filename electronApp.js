@@ -1,6 +1,9 @@
 // Modules to control application life and create native browser window
 const {app, BrowserWindow, ipcMain} = require('electron')
 const path = require('path')
+const backend = require("i18next-electron-fs-backend");
+const fs = require("fs");
+
 /// create a global var, wich will keep a reference to out loadingScreen window
 let loadingScreen;
 const createLoadingScreen = () => {
@@ -33,7 +36,7 @@ function createWindow (location) {
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: true,
-      contextIsolation: false,},
+      contextIsolation: true,},
     /// show to false mean than the window will proceed with its lifecycle, but will not render until we will show it up
     show: false})
 
@@ -53,6 +56,10 @@ function createWindow (location) {
   mainWindow.maximize();
   mainWindow.show();
 });
+
+backend.mainBindings(ipcMain, mainWindow, fs); // <- configures the backend
+
+
 return mainWindow;
 }
 

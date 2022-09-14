@@ -21,3 +21,28 @@ let data = `
         console.log("The file was saved!");
     });
 }
+
+
+
+const {
+    contextBridge,
+    ipcRenderer
+} = require("electron");
+const backend = require("i18next-electron-fs-backend");
+
+const i18next = require('i18next');
+
+i18next
+  .use(require("i18next-electron-fs-backend"))
+  .init({
+    backend: {
+      loadPath: "./locales/{{lng}}.json",
+    },
+    lng: "en"
+  });
+  
+contextBridge.exposeInMainWorld(
+    "api", {
+        i18nextElectronBackend: backend.preloadBindings(ipcRenderer, process)
+    }
+);

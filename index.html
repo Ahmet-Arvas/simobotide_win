@@ -41,34 +41,6 @@
 </div>
 </body>
 <script>
-	/**
-	 * require I18n with capital I as constructor
-	 */
-	const i18next = require('i18next')
-	i18next.init({
-	lng: 'en', // if you're using a language detector, do not define the lng option
-	debug: true,
-	resources: {
-	en: {
-		translation: {
-		"key": "hello world"
-		}
-	},
-	tr:	{
-		translation: {
-		"key": "Merhaba Dunya"
-		}
-	}
-	}
-	});
-	i18next.changeLanguage('tr', (err, t) => {
-	if (err) return console.log('something went wrong loading', err);
-		t('key'); // -> same as i18next.t
-	});
-	// initialized and ready to go!
-	// i18next is already initialized, because the translation resources where passed via init function
-	document.getElementById('update').innerHTML = i18next.t('key');
-
 	var promptData;
 	const projectManager = require('./assets/js/project_manager.js');
 	const dialogCreator = require('./assets/js/navigation.js');
