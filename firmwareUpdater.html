@@ -75,15 +75,6 @@
       var start = new Date().getTime();
       while (new Date().getTime() < start + delay);
     }
-    
-    window.addEventListener("beforeunload",function(event) {
-      alert("durr")
-      console.log("Blocking for 1 second...");
-      sleep(1000);
-      console.log("Done!!");
-      event.returnValue = "a";
-    });
-    
   </script>
 </body>
 </html>
