@@ -41,6 +41,8 @@
 </div>
 </body>
 <script>
+	const fs = require('fs');
+
 	var promptData;
 	const projectManager = require('./assets/js/project_manager.js');
 	const dialogCreator = require('./assets/js/navigation.js');
@@ -50,5 +52,9 @@
 	const updateManager = require('./assets/js/updateManager.js');
 	updateManager.checkAppUpdate(1);
 	require("./preload.js");
+	
+	var i18next = require("i18next");
+	i18next.changeLanguage("en");
+	document.getElementById('update').innerHTML = i18next.t('key');
 </script>
 </html>

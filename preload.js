@@ -22,27 +22,24 @@ let data = `
     });
 }
 
-
-
-const {
-    contextBridge,
-    ipcRenderer
-} = require("electron");
-const backend = require("i18next-electron-fs-backend");
-
-const i18next = require('i18next');
+var i18next = require("i18next");
+var Backend = require("i18next-node-fs-backend");
 
 i18next
-  .use(require("i18next-electron-fs-backend"))
+  .use(Backend)
   .init({
+    debug: true,
+    //initImmediate: false,
+    fallbackLng: 'en',
+    lng: 'en',
+    preload: fs.readdirSync('locales').filter((fileName) => {
+      const joinedPath = 'locales/' + fileName
+      const isDirectory = fs.lstatSync(joinedPath).isDirectory()
+      return isDirectory
+    }),
+    ns: 'backend-app',
+    defaultNS: 'backend-app',
     backend: {
-      loadPath: "./locales/{{lng}}.json",
-    },
-    lng: "en"
-  });
-  
-contextBridge.exposeInMainWorld(
-    "api", {
-        i18nextElectronBackend: backend.preloadBindings(ipcRenderer, process)
+      loadPath: 'locales/{{lng}}.json'
     }
-);
+  })
