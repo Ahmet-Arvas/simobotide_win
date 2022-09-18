@@ -23,13 +23,13 @@ let data = `
 }
 
 var i18next = require("i18next");
-var Backend = require("i18next-node-fs-backend");
+var Backend = require("i18next-fs-backend");
 
 i18next
   .use(Backend)
   .init({
     debug: true,
-    //initImmediate: false,
+    initImmediate: false,
     fallbackLng: 'en',
     lng: 'en',
     preload: fs.readdirSync('locales').filter((fileName) => {
