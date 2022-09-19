@@ -24,6 +24,7 @@ let data = `
 
 var i18next = require("i18next");
 var Backend = require("i18next-fs-backend");
+var Mustache = require('mustache');
 
 i18next
   .use(Backend)

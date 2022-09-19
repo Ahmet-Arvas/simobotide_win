@@ -16,6 +16,11 @@
 <!--|-->	<link rel="stylesheet" href="assets/css/navigation_prompt.css" />
 <!--|-->	<link rel="stylesheet" href="assets/css/normal_prompt.css" />
 	<!--For this page only-->
+
+	<script>
+		var i18next = require("i18next");
+	i18next.changeLanguage("en");
+	</script>
 	<link rel="stylesheet" href="assets/css/index.html.css" />
 </head>
 <body id="body">
@@ -37,12 +42,11 @@
 		<span>New Project</span>
 		<p>Explore, create and improve your brain.</p>
 	</a>
-	<div id="update" style="display: flex;"></div>
+	<div id="update" style="display: flex;">{{content.body}}</div>
 </div>
 </body>
 <script>
 	const fs = require('fs');
-
 	var promptData;
 	const projectManager = require('./assets/js/project_manager.js');
 	const dialogCreator = require('./assets/js/navigation.js');
@@ -53,8 +57,7 @@
 	updateManager.checkAppUpdate(1);
 	require("./preload.js");
 	
-	var i18next = require("i18next");
-	i18next.changeLanguage("en");
-	document.getElementById('update').innerHTML = i18next.t('key');
+	
+	
 </script>
 </html>

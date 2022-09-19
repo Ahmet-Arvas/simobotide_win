@@ -1,3 +1,16 @@
 {
-    "key": "value"
+    "navigation": {
+        "home" : {
+            "introTitle" : "Get Started Using Simobot",
+            "introP" : "Learn to use Simobot with simple steps.",
+            "introBtn" : "Start !",
+            "recentProjectsTitle" : "Recent Projects",
+            "recentProjectsNewProject" : "New Project",
+            "recentProjectsShowAll" : "Show All",
+            "exploreUnitsTitle" : "Explore Units",
+            "exploreUnitsContent" : "Become a explorer and learn new things in every project.",
+            "createNewThingsTitle" : "Create New Things!",
+            "createNewThingsContent" : "If you want to try different things, this page is for you."
+        }
+    }
 }
