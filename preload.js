@@ -26,6 +26,7 @@ var i18next = require("i18next");
 var Backend = require("i18next-fs-backend");
 var Mustache = require('mustache');
 
+
 i18next
   .use(Backend)
   .init({
@@ -43,4 +44,18 @@ i18next
     backend: {
       loadPath: 'locales/{{lng}}.json'
     }
+  })
+
+  window.addEventListener('DOMContentLoaded', () => {
+    var view = {
+      "i18n": function () {
+        return function (text, render) {
+          return i18next.t(text);
+        }
+      }
+      };
+    var rendered = Mustache.render(
+      document.getElementById("body").innerHTML, view
+    );
+    document.getElementById("body").innerHTML = rendered;
   })

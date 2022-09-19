@@ -26,7 +26,7 @@ class CreateDialog{
             <div class="intro">
                 <div class="intro_cont">
                     <span class="intro_title">Get started using Simobot</span>
-                    <p>Learn to use Simobot with simple steps!</p>
+                    <p>{{#i18n}}navigation.home.introP{{/i18n}}</p>
                     <a class="startbutton" id="startbutton">Start</a>
                 </div>
                 <div class="intro_img">
