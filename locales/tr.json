@@ -1,1 +1,18 @@
-{}
+{
+    "navigation": {
+        "tabControl" : {
+        },
+        "home" : {
+            "introTitle" : "Simobotunuzu Kullanmaya Başlayın",
+            "introP" : "Simobotunuzu kullanmayı basit adımlarla öğrenin.",
+            "introBtn" : "Başla !",
+            "recentProjectsTitle" : "Geçmiş Projeler",
+            "recentProjectsNewProject" : "Yeni Proje",
+            "recentProjectsShowAll" : "Tümünü Göster",
+            "exploreUnitsTitle" : "Explore Units",
+            "exploreUnitsContent" : "Become a explorer and learn new things in every project.",
+            "createNewThingsTitle" : "Create New Things!",
+            "createNewThingsContent" : "If you want to try different things, this page is for you."
+        }
+    }
+}

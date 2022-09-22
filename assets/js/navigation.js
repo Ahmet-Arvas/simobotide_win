@@ -1,5 +1,7 @@
 const fs = require("fs");
 const os = require("os");
+const i18n = require('./translate.js');
+
 const userHomeDir = os.homedir();
 var rp_element;
 var projects_element;
@@ -25,23 +27,23 @@ class CreateDialog{
         <div class="tab">
             <div class="intro">
                 <div class="intro_cont">
-                    <span class="intro_title">Get started using Simobot</span>
-                    <p>{{#i18n}}navigation.home.introP{{/i18n}}</p>
-                    <a class="startbutton" id="startbutton">Start</a>
+                    <span data-i18n="navigation.home.introTitle" class="intro_title">Get Started Using Simobot</span>
+                    <p data-i18n="navigation.home.introP">Learn to use Simobot with simple steps.</p>
+                    <a data-i18n="navigation.home.introBtn" class="startbutton" id="startbutton">Start !</a>
                 </div>
                 <div class="intro_img">
                     <img src="images/intro_img.png">
                 </div>
             </div>
             <div style="display: flex; width:100%">
-            <span style="font-size: 20px; margin-bottom: -10px;">Recent Projects</span>
-            <a id="showallbtn" style="cursor: pointer; font-size: 20px; margin-bottom: -10px; margin-left:auto; align-self: flex-end; color: rgb(0, 144, 245);">Show All</a>
+            <span data-i18n="navigation.home.recentProjectsTitle" style="font-size: 20px; margin-bottom: -10px;">Recent Projects</span>
+            <a data-i18n="navigation.home.recentProjectsShowAll" id="showallbtn" style="cursor: pointer; font-size: 20px; margin-bottom: -10px; margin-left:auto; align-self: flex-end; color: rgb(0, 144, 245);">Show All</a>
             </div>
             <div class="rpWrapper">
                     <div class="rpNewProject">
                         <a onclick="dialogCreator.selectIdeType()">
                             <i class='bx bxs-file-plus'></i>
-                            <span>New Project</span>
+                            <span data-i18n="navigation.home.recentProjectsNewProject">New Project</span>
                         </a>
                     </div>
                 <div id="recentProjects" class="recentProjects customScrollbar">
@@ -132,6 +134,8 @@ class CreateDialog{
                 }
             }
         })
+        i18n.syncPage(); // When reopen prompt reload translations
+
         const controls = document.querySelectorAll(".tab-control");
         const tabs = document.querySelectorAll(".tab");
         const tabdiv = document.getElementById("tab-div");

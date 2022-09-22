@@ -1,5 +1,7 @@
 {
     "navigation": {
+        "tabControl" : {
+        },
         "home" : {
             "introTitle" : "Get Started Using Simobot",
             "introP" : "Learn to use Simobot with simple steps.",

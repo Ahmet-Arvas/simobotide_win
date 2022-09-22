@@ -17,6 +17,8 @@
 <!--|-->	<link rel="stylesheet" href="assets/css/normal_prompt.css" />
 	<!--For this page only-->
 	<link rel="stylesheet" href="assets/css/index.html.css" />
+	<script>var sprintf = require('sprintf-js').sprintf;var i18next = require("i18next");
+	</script>
 </head>
 <body id="body">
 <div id="newProject" style="display: inline;">
@@ -36,7 +38,6 @@
 		<span>New Project</span>
 		<p>Explore, create and improve your brain.</p>
 	</a>
-	<div id="update" style="display: flex;">{{content.body}}</div>
 </div>
 </body>
 <script>
@@ -49,6 +50,6 @@
     const notyf = new Notyf();
 	const updateManager = require('./assets/js/updateManager.js');
 	updateManager.checkAppUpdate(1);
-	require("./preload.js");
+	i18next.changeLanguage('tr')
 </script>
 </html>

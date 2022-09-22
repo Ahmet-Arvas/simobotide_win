@@ -1,6 +1,8 @@
+const i18n = require('./assets/js/translate.js');
 const fs = require('fs');
 const os = require("os");
-
+i18n.init();
+window.addEventListener('DOMContentLoaded', () => {i18n.syncPage();});
 const userHomeDir = os.homedir();
 
 if (!fs.existsSync(userHomeDir+'/Documents/Simobot IDE/Projects')){
@@ -21,41 +23,3 @@ let data = `
         console.log("The file was saved!");
     });
 }
-
-var i18next = require("i18next");
-var Backend = require("i18next-fs-backend");
-var Mustache = require('mustache');
-
-
-i18next
-  .use(Backend)
-  .init({
-    debug: true,
-    initImmediate: false,
-    fallbackLng: 'en',
-    lng: 'en',
-    preload: fs.readdirSync('locales').filter((fileName) => {
-      const joinedPath = 'locales/' + fileName
-      const isDirectory = fs.lstatSync(joinedPath).isDirectory()
-      return isDirectory
-    }),
-    ns: 'backend-app',
-    defaultNS: 'backend-app',
-    backend: {
-      loadPath: 'locales/{{lng}}.json'
-    }
-  })
-
-  window.addEventListener('DOMContentLoaded', () => {
-    var view = {
-      "i18n": function () {
-        return function (text, render) {
-          return i18next.t(text);
-        }
-      }
-      };
-    var rendered = Mustache.render(
-      document.getElementById("body").innerHTML, view
-    );
-    document.getElementById("body").innerHTML = rendered;
-  })
