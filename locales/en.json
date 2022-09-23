@@ -1,6 +1,13 @@
 {
     "navigation": {
         "tabControl" : {
+            "home" : "Home",
+            "tutorial" : "Tutorial",
+            "units" : "Units",
+            "create" : "Create",
+            "myProjects" : "My Projects",
+            "help" : "Help",
+            "settings" : "Settings" 
         },
         "home" : {
             "introTitle" : "Get Started Using Simobot",
@@ -13,6 +20,26 @@
             "exploreUnitsContent" : "Become a explorer and learn new things in every project.",
             "createNewThingsTitle" : "Create New Things!",
             "createNewThingsContent" : "If you want to try different things, this page is for you."
+        },
+        "settings" : {
+            "languageSelect" : "Select Language",
+            "language" : "Language",
+            "theme" : "Theme",
+            "checkAppUpdates" : "Check app updates.",
+            "checkFirmwareUpdates" : "Check firmware updates.",
+            "checkUnitUpdates" : "Check unit updates."
         }
+    },
+    "newProjectPrompt":{
+        "textLabel" : "Name your project",
+        "blocks" : "Blocks",
+        "python" : "Python",
+        "submit" : "Create!"
+    },
+    "index" : {
+        "homeTitle" : "Home",
+        "homeContent" : "Explore learning materials.",
+        "newProjectTitle" : "New Project",
+        "newProjectContent" : "Explore, create and improve your brain."
     }
 }

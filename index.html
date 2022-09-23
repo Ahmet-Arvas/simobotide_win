@@ -9,6 +9,7 @@
 <!--|--><link rel="stylesheet" href="node_modules/notyf/notyf.min.css">
 <!--|--><link rel="stylesheet" href="assets/css/main.css">
 <!--|--><link rel="stylesheet" href="node_modules/boxicons/css/boxicons.min.css">
+<!--|--><script>var i18next = require("i18next");</script>
 <!--|---PROMPT SYSTEM-->
 <!--|-->	<script src="assets/js/vex.combined.min.js"></script>
 <!--|-->	<script>vex.defaultOptions.className = 'vex-theme-wireframe'</script>
@@ -17,8 +18,6 @@
 <!--|-->	<link rel="stylesheet" href="assets/css/normal_prompt.css" />
 	<!--For this page only-->
 	<link rel="stylesheet" href="assets/css/index.html.css" />
-	<script>var sprintf = require('sprintf-js').sprintf;var i18next = require("i18next");
-	</script>
 </head>
 <body id="body">
 <div id="newProject" style="display: inline;">
@@ -30,13 +29,13 @@
 <div class="container">
 	<a onclick="dialogCreator.homeDialog()" class="nav_btn">
 		<i class='bx bx-home-smile'></i>
-		<span>Home</span>
-		<p>Explore learning materials.</p>
+		<span data-i18n="index.homeTitle">Home</span>
+		<p data-i18n="index.homeContent">Explore learning materials.</p>
 	</a>
 	<a onclick="dialogCreator.selectIdeType()" class="nav_btn">
 		<i class='bx bxs-file-plus'></i>
-		<span>New Project</span>
-		<p>Explore, create and improve your brain.</p>
+		<span data-i18n="index.newProjectTitle">New Project</span>
+		<p data-i18n="index.newProjectContent">Explore, create and improve your brain.</p>
 	</a>
 </div>
 </body>
@@ -50,6 +49,5 @@
     const notyf = new Notyf();
 	const updateManager = require('./assets/js/updateManager.js');
 	updateManager.checkAppUpdate(1);
-	i18next.changeLanguage('tr')
 </script>
 </html>

@@ -1,6 +1,13 @@
 {
     "navigation": {
         "tabControl" : {
+            "home" : "Anasayfa",
+            "tutorial" : "Öğretici",
+            "units" : "Üniteler",
+            "create" : "Yeni Fikirler",
+            "myProjects" : "Tüm Projeler",
+            "help" : "Yardım",
+            "settings" : "Ayarlar" 
         },
         "home" : {
             "introTitle" : "Simobotunuzu Kullanmaya Başlayın",
@@ -9,10 +16,30 @@
             "recentProjectsTitle" : "Geçmiş Projeler",
             "recentProjectsNewProject" : "Yeni Proje",
             "recentProjectsShowAll" : "Tümünü Göster",
-            "exploreUnitsTitle" : "Explore Units",
-            "exploreUnitsContent" : "Become a explorer and learn new things in every project.",
-            "createNewThingsTitle" : "Create New Things!",
-            "createNewThingsContent" : "If you want to try different things, this page is for you."
+            "exploreUnitsTitle" : "Üniteleri keşfet",
+            "exploreUnitsContent" : "Kaşif ol ve her projede yeni şeyler keşfet.",
+            "createNewThingsTitle" : "Yeni Şeyler Üret",
+            "createNewThingsContent" : "Yepyeni fikirler istiyorsan bu sayfa tam sana göre."
+        },
+        "settings" : {
+            "languageSelect" : "Dil Seç",
+            "language" : "Dil",
+            "theme" : "Tema",
+            "checkAppUpdates" : "Uygulama güncellemelerini kontrol et.",
+            "checkFirmwareUpdates" : "Firmware güncellemelerini kontrol et.",
+            "checkUnitUpdates" : "Müfredat güncellemelerini kontrol et."
         }
+    },
+    "newProjectPrompt":{
+        "textLabel" : "Projeni isimlendir",
+        "blocks" : "Bloklar",
+        "python" : "Python",
+        "submit" : "Oluştur!"
+    },
+    "index" : {
+        "homeTitle" : "Anasayfa",
+        "homeContent" : "Öğrenme materyallerini keşfedin.",
+        "newProjectTitle" : "Yeni Proje",
+        "newProjectContent" : "Keşfedin, oluşturun ve beyninizi geliştirin."
     }
 }

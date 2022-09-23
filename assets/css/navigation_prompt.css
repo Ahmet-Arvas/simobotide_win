@@ -278,9 +278,7 @@
 .dropdown,
 .dropdown * {
   font-family: "mainFont", "secondFont";
-  width: 150px;
   align-self: center;
-  height: 80%;
   margin-top: 1px;
   margin-right: 5px;
   position: relative;
@@ -385,7 +383,7 @@ li:hover{
 
 .startbutton {
   display: inline-flex;
-  margin-top: 40px;
+  margin-top: 20px;
   font-family: 'mainFont','secondFont';
   padding: 1.3em 3em;
   font-size: 12px;

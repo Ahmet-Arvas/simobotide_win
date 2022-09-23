@@ -13,14 +13,14 @@ class CreateDialog{
             unsafeMessage: `
     <section id="section-tab">
         <ul id="tab-control">
-        <li class="tab-control" id="control-selected"><i class='bx bx-home-smile'></i> <span>Home</span></li>
-        <li class="tab-control"><i class='bx bx-rocket' ></i><span>Tutorial</span></li>
-        <li class="tab-control"><i class='bx bx-task' ></i><span>Units</span></li>
-        <li class="tab-control"><i class='bx bx-microchip' ></i><span>Create</span></li>
-        <li class="tab-control"><i class='bx bx-book' ></i><span>My Projects</span></li>
+        <li class="tab-control" id="control-selected"><i class='bx bx-home-smile'></i> <span data-i18n="navigation.tabControl.home">Home</span></li>
+        <li class="tab-control"><i class='bx bx-rocket' ></i><span data-i18n="navigation.tabControl.tutorial">Tutorial</span></li>
+        <li class="tab-control"><i class='bx bx-task' ></i><span data-i18n="navigation.tabControl.units">Units</span></li>
+        <li class="tab-control"><i class='bx bx-microchip' ></i><span data-i18n="navigation.tabControl.create">Create</span></li>
+        <li class="tab-control"><i class='bx bx-book' ></i><span data-i18n="navigation.tabControl.myProjects">My Projects</span></li>
         <div class="bottom_tabs">
-        <li class="tab-control "><i class='bx bxs-help-circle' ></i><span>Help</span></li>
-        <li class="tab-control"><i class='bx bxs-wrench'></i><span>Settings</span></li>
+        <li class="tab-control "><i class='bx bxs-help-circle' ></i><span data-i18n="navigation.tabControl.help">Help</span></li>
+        <li class="tab-control"><i class='bx bxs-wrench'></i><span data-i18n="navigation.tabControl.settings">Settings</span></li>
         </div>
         </ul>
         <div id="tab-div" class="customScrollbar">
@@ -36,8 +36,8 @@ class CreateDialog{
                 </div>
             </div>
             <div style="display: flex; width:100%">
-            <span data-i18n="navigation.home.recentProjectsTitle" style="font-size: 20px; margin-bottom: -10px;">Recent Projects</span>
-            <a data-i18n="navigation.home.recentProjectsShowAll" id="showallbtn" style="cursor: pointer; font-size: 20px; margin-bottom: -10px; margin-left:auto; align-self: flex-end; color: rgb(0, 144, 245);">Show All</a>
+            <span data-i18n="navigation.home.recentProjectsTitle" style="font-size: 20px;">Recent Projects</span>
+            <a data-i18n="navigation.home.recentProjectsShowAll" id="showallbtn" style="cursor: pointer; font-size: 20px; margin-left:auto; align-self: flex-end; color: rgb(0, 144, 245);">Show All</a>
             </div>
             <div class="rpWrapper">
                     <div class="rpNewProject">
@@ -52,19 +52,19 @@ class CreateDialog{
             </div>
             <div class="bottomlinks">
                 <div id="unitsbutton" class="linkcard">
-                    <div class="lc_head">Explore Units</div>
+                    <div class="lc_head" data-i18n="navigation.home.exploreUnitsTitle">Explore Units</div>
                     <div class="lc_body"><img src="images/linkcard_units.png"></div>
-                    <div class="lc_content">That's like story mode of Minecraft :)</div>	
+                    <div class="lc_content" data-i18n="navigation.home.exploreUnitsContent">That's like story mode of Minecraft :)</div>	
                 </div>
                 <div id="createbutton" class="linkcard">
-                    <div class="lc_head">Create new things!</div>
+                    <div class="lc_head" data-i18n="navigation.home.createNewThingsTitle">Create new things!</div>
                     <div class="lc_body"><img src="images/linkcard_create.png"></div>
-                    <div class="lc_content">You can create different things with Simobot, click to try</div>
+                    <div class="lc_content" data-i18n="navigation.home.createNewThingsContent">You can create different things with Simobot, click to try</div>
                 </div>
             </div>
         </div>
         <div class="tab tab_tutorial">
-            <h2>Tutorial</h2>
+            <h2 data-i18n="navigation.tabControl.tutorial">Tutorial</h2>
             <div class="cards customScrollbar">
                 <div class="card"></div>
                 <div class="card"></div>
@@ -75,44 +75,48 @@ class CreateDialog{
             </div>
         </div>
         <div class="tab">
-            <h2>Units</h2>
+            <h2 data-i18n="navigation.tabControl.units">Units</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil ex asperiores excepturi, adipisci est, tempore suscipit magnam error odio expedita nisi facere culpa in reiciendis laboriosam possimus consequatur a sit.</p>
         </div>
         <div class="tab">
-            <h2>Create</h2>
+            <h2 data-i18n="navigation.tabControl.create">Create</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil ex asperiores excepturi, adipisci est, tempore suscipit magnam error odio expedita nisi facere culpa in reiciendis laboriosam possimus consequatur a sit.</p>
         </div>
         <div class="tab">
-            <h2>My Projects</h2>
+            <h2 data-i18n="navigation.tabControl.myProjects">My Projects</h2>
             <div id="projects" class="projects"></div>
         </div>
         <div class="tab">
-            <h2>Help</h2>
+            <h2 data-i18n="navigation.tabControl.help">Help</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil ex asperiores excepturi, adipisci est, tempore suscipit magnam error odio expedita nisi facere culpa in reiciendis laboriosam possimus consequatur a sit.</p>
         </div>
         <div class="tab">
-            <h2>Settings</h2>
+            <h2 data-i18n="navigation.tabControl.settings">Settings</h2>
                 <div class="settings">
                     <div class="row">
-                    <div class="category_name">Language</div>
+                    <div data-i18n="navigation.settings.language" class="category_name">Language</div>
                     <div class="dropdown">
-                        <select id="langSelect" ></select>
+                        <select id="setLang">
+                            <option value="nothing" data-i18n="navigation.settings.languageSelect"> Select Language </option>
+                            <option value="en"> English </option>
+                            <option value="tr"> Turkish </option>
+                        </select>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="category_name">Theme</div>
+                    <div class="category_name" data-i18n="navigation.settings.theme">Theme</div>
                     <div class="dropdown">
                         <select id="themeSelect" ></select>
                     </div>
                 </div>
                 <div class="row" style="text-align:center ">
-                    <a onclick="updateManager.checkAppUpdate();">Check App Updates</a>
+                    <a data-i18n="navigation.settings.checkAppUpdates" onclick="updateManager.checkAppUpdate();">Check App Updates</a>
                 </div>
                 <div class="row" style="text-align:center ">
-                    <a onclick="updateManager.openFirmwareUpdater()">Check SimobotHeart Updates</a>
+                    <a data-i18n="navigation.settings.checkFirmwareUpdates" onclick="updateManager.openFirmwareUpdater()">Check SimobotHeart Updates</a>
                 </div>
                 <div class="row" style="text-align:center ">
-                    <a>Check Unit Updates</a>
+                    <a data-i18n="navigation.settings.checkUnitUpdates">Check Unit Updates</a>
                     
                 </div>
             </div>
@@ -135,11 +139,31 @@ class CreateDialog{
             }
         })
         i18n.syncPage(); // When reopen prompt reload translations
-
         const controls = document.querySelectorAll(".tab-control");
         const tabs = document.querySelectorAll(".tab");
         const tabdiv = document.getElementById("tab-div");
         tabdiv.scrollTop = 0;
+
+        
+        var setLang = document.getElementById("setLang");
+        setLang.addEventListener("change", function(event){
+            if(setLang.value != "nothing"){
+                i18next.changeLanguage(setLang.value);
+                let rawdata = fs.readFileSync(userHomeDir + "/Documents/Simobot IDE/settings.json");
+                if(rawdata){
+                    var projectData = JSON.parse(rawdata);
+                }
+let jsondata =`
+{  
+    "theme": "${projectData["theme"]}",
+    "language": "${setLang.value}"
+}
+`
+                fs.writeFileSync(userHomeDir + "/Documents/Simobot IDE/settings.json", jsondata, 'utf-8'); 
+                i18n.syncPage();
+            }
+            
+        });
         
         // display none for 1-length tabs
         for (let i = 1; i < tabs.length; i++) {
@@ -296,14 +320,14 @@ class CreateDialog{
         vex.dialog.open({
             unsafeMessage: `
             <label class="vex-dialog-input">
-            Name your project
+            <span data-i18n="newProjectPrompt.textLabel" >Name your project</span>
             <input type="text" value="Project" id="form_projectname">
             </label>
             <div class="middle">
             <label>
             <input type="radio" name="radio" value="blocks" checked/>
             <div class="blocks box">
-                <div class="title">Blocks</div>
+                <div class="title" data-i18n="newProjectPrompt.blocks">Blocks</div>
                 <div class="body">
                     <img src="images/puzzle.gif">
                 </div>
@@ -312,13 +336,13 @@ class CreateDialog{
             <label>
             <input type="radio" name="radio" value="python"/>
             <div class="python box">
-                <div class="title">Python</div>
+                <div data-i18n="newProjectPrompt.python" class="title">Python</div>
                 <div class="body">
                     <img src="images/cmd.gif">
                 </div>
             </div>
             </label>
-            <button class="startbutton" id="createProject" onclick="dialogCreator.createProject()" style="background-color: #4ACBE3; margin-top:10px">
+            <button data-i18n="newProjectPrompt.submit" class="startbutton" id="createProject" onclick="dialogCreator.createProject()" style="background-color: #4ACBE3; margin-top:10px">
             Create!
             </button>
             </div>
@@ -332,7 +356,9 @@ class CreateDialog{
             className: 'vex-theme-wireframe',
             closeAllOnPopState: false,
         })
+        i18n.syncPage(); // When reopen prompt reload translations
     }
+    
     checkName(form_projectname){
         let answer = 0;
         /*let files = fs.readdirSync(userHomeDir+'/Documents/Simobot IDE/');
