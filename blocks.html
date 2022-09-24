@@ -31,7 +31,9 @@
       <div id="projectname"></div>
       <div class="rightheader">
         <div class="select-dropdown">
-          <select id="portSelect" ></select>
+          <select id="portSelect" >
+            <option value='closePort' data-i18n='workspace.selectPort'> Select a port </option>
+          </select>
         </div>
         <a class='yellowbtn' onclick="vex.dialog.alert({unsafeMessage: document.getElementById('slotselect').innerHTML })"><i class='bx bx-upload bx-md' ></i><span>Save Code to Simobot</span></a>
         <a class='yellowbtn' onclick="projectManager.saveProject('blocks', Blockly.serialization.workspaces.save(blocklyScript.workspace))"><i class='bx bx-save bx-md' ></i><span>Save Project</span></a>

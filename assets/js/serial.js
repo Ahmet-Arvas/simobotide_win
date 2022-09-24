@@ -4,6 +4,7 @@ const { Terminal } = require('xterm');
 const { Notyf } = require('notyf');
 const { ReadlineParser } = require('@serialport/parser-readline')
 const parser = new ReadlineParser()
+const i18n = require('./translate.js');
 
 
 // Create an instance of Notyf
@@ -177,7 +178,7 @@ async function listSerialPorts() {
         document.getElementById('error').textContent = ''
       }
       var portobj = JSON.parse(JSON.stringify(ports));
-      selectPortHTML = "<option value='closePort'> Select a port </option>";
+      selectPortHTML = portSelect.firstElementChild.outerHTML;
       for(var key in portobj) {
         if(portobj[key].vendorId == "2E8A"){
           if (portSelect.value == portobj[key].path) {

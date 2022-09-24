@@ -41,5 +41,10 @@
         "homeContent" : "Öğrenme materyallerini keşfedin.",
         "newProjectTitle" : "Yeni Proje",
         "newProjectContent" : "Keşfedin, oluşturun ve beyninizi geliştirin."
+    },
+    "workspace":{
+        "selectPort" : "Port Seç",
+        "uploadCode" : "Kodu Simobot'a Yükle",
+        "saveProject" : "Projeyi Kaydet"
     }
 }

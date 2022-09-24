@@ -1,4 +1,6 @@
 const i18n = require('./assets/js/translate.js');
+require("./locales/tr.json")
+require("./locales/en.json")
 const fs = require('fs');
 const os = require("os");
 const i18next = require("i18next");

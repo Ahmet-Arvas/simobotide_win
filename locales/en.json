@@ -41,5 +41,10 @@
         "homeContent" : "Explore learning materials.",
         "newProjectTitle" : "New Project",
         "newProjectContent" : "Explore, create and improve your brain."
+    },
+    "workspace":{
+        "selectPort" : "Select a Port",
+        "uploadCode" : "Upload Code to Simobot",
+        "saveProject" : "Save Project"
     }
 }
