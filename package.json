@@ -38,6 +38,7 @@
     },
     "dependencies": {
         "@codemirror/lang-python": "github:codemirror/lang-python",
+        "ace-builds": "^1.11.1",
         "axios": "^0.27.2",
         "blockly": "^8.0.3",
         "boxicons": "^2.1.2",

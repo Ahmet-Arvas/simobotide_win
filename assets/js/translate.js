@@ -1,5 +1,7 @@
 var i18next = require("i18next");
 var Backend = require("i18next-fs-backend");
+var path = require("path");
+
 const fs = require('fs');
 
 class i18n{
@@ -11,15 +13,15 @@ class i18n{
             initImmediate: false,
             fallbackLng: 'en',
             lng: 'en',
-            preload: fs.readdirSync('locales').filter((fileName) => {
-                const joinedPath = 'locales/' + fileName
+            preload: fs.readdirSync(path.join(__dirname, '../../locales')).filter((fileName) => {
+                const joinedPath = path.join(path.join(__dirname, '../../locales'), fileName)
                 const isDirectory = fs.lstatSync(joinedPath).isDirectory()
                 return isDirectory
             }),
             ns: 'backend-app',
             defaultNS: 'backend-app',
             backend: {
-                loadPath: 'locales/{{lng}}.json'
+                loadPath: path.join(__dirname, '../../locales/{{lng}}.json')
             }
         })
     }
