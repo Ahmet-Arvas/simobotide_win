@@ -3,6 +3,7 @@ const os = require("os");
 const userHomeDir = os.homedir()
 const projectManager = require('./project_manager.js');
 const serial = require('./serial.js')
+const hotkeys = require('hotkeys-js');
 
 var close_aside_btn =  document.getElementById('close_aside');
 var aside = document.getElementById('aside')
@@ -10,10 +11,23 @@ var close_footer_btn = document.getElementById('close_footer');
 var footer = document.getElementById('footer');
 var fullscreen_btn = document.getElementById('fullscreen_btn');
 
+var editor = ace.edit("editor");
+
+editor.setTheme("ace/theme/monokai");
+editor.session.setMode("ace/mode/python");
+
 window.onbeforeunload = function(){
-    projectManager.saveProject('python', monacoeditor.getValue())
+    projectManager.saveProject('python', editor.getValue())
     serial.closePort(1);
 };
+
+hotkeys('ctrl+s, command+s', function() {
+    projectManager.saveProject('python', editor.getValue())
+});
+hotkeys.filter = function(event){
+    return true;
+}
+
 
 if (fs.existsSync(userHomeDir+'/Documents/Simobot IDE/Projects/' + projectManager.parseURLParams(location.href)["name"] + '/project.py')){
     let data = fs.readFileSync(userHomeDir + "/Documents/Simobot IDE/Projects/"+ projectManager.parseURLParams(location.href)["name"] +"/project.py", {encoding:'utf8', flag:'r'});
@@ -23,6 +37,8 @@ if (fs.existsSync(userHomeDir+'/Documents/Simobot IDE/Projects/' + projectManage
 }else{
     var doc = `import simobot etc`
 }
+editor.setValue(doc);
+
 
 portSelect = document.getElementById("portSelect");
 portSelect.addEventListener("change", function(event){
@@ -47,15 +63,13 @@ close_footer_btn.addEventListener('click', function() {
     document.getElementById("editor").style.height = "calc(80vh - 45px)";
     close_footer_btn.style.bottom = "20vh";
     fullscreen_btn.style.bottom = "20vh";
-    monacoeditor.layout();
-    monacoeditor.layout();
+    editor.resize()
     } else {
     footer.classList.add('h-hide');
     document.getElementById("editor").style.height = "calc(100vh - 45px)";
     close_footer_btn.style.bottom = "0";
     fullscreen_btn.style.bottom = "0";
-    monacoeditor.layout();
-    monacoeditor.layout();
+    editor.resize()
 
     }
 });
@@ -90,9 +104,8 @@ fullscreen_btn.addEventListener('click', function() {
 });
 window.onresize = () => {
     console.log('Window resize');
-    monacoeditor.layout();
-    monacoeditor.layout();
+    editor.resize()
 };
 projectManager.syncPage();
 serial.xterm_fit();
-module.exports = doc;
+module.exports = editor;

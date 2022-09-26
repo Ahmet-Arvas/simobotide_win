@@ -19,12 +19,6 @@
   <link rel="stylesheet" href="assets/css/workspace.css" />
   <link rel="stylesheet" href="node_modules/xterm/css/xterm.css" />
   <link rel="stylesheet" href="assets/css/python.html.css">
-  
-  <script>
-    var monacoeditor;
-    var nodeRequire = global.require;
-  </script>
-  <script src="./node_modules/monaco-editor/min/vs/loader.js"></script>
 </head>
 <body>
   <div id="wrapper">
@@ -41,17 +35,17 @@
           </select>
         </div>
         <a class='yellowbtn' onclick="vex.dialog.alert({unsafeMessage: document.getElementById('slotselect').innerHTML})"><i class='bx bx-upload bx-md' ></i><span data-i18n="workspace.uploadCode">Upload Code to Simobot</span></a>
-        <a class='yellowbtn' onclick="projectManager.saveProject('python', monacoeditor.getValue())"><i class='bx bx-save bx-md' ></i><span data-i18n="workspace.saveProject">Save Project</span></a>
+        <a class='yellowbtn' onclick="projectManager.saveProject('python', editor.getValue())"><i class='bx bx-save bx-md' ></i><span data-i18n="workspace.saveProject">Save Project</span></a>
         <div id="slotselect" style="display:none">
-          <a class="projectCard" onclick="serial.codetoFile('slot1.py', monacoeditor.getValue())">Slot 1</a>
-          <a class="projectCard" onclick="serial.codetoFile('slot2.py', monacoeditor.getValue())">Slot 2</a>
-          <a class="projectCard" onclick="serial.codetoFile('slot3.py', monacoeditor.getValue())">Slot 3</a>
-          <a class="projectCard" onclick="serial.codetoFile('slot4.py', monacoeditor.getValue())">Slot 4</a>
-          <a class="projectCard" onclick="serial.codetoFile('slot5.py', monacoeditor.getValue())">Slot 5</a>
+          <a class="projectCard" onclick="serial.codetoFile('slot1.py', editor.getValue())">Slot 1</a>
+          <a class="projectCard" onclick="serial.codetoFile('slot2.py', editor.getValue())">Slot 2</a>
+          <a class="projectCard" onclick="serial.codetoFile('slot3.py', editor.getValue())">Slot 3</a>
+          <a class="projectCard" onclick="serial.codetoFile('slot4.py', editor.getValue())">Slot 4</a>
+          <a class="projectCard" onclick="serial.codetoFile('slot5.py', editor.getValue())">Slot 5</a>
         </div>
       </div>
     </header>
-    <a class="liveCodebtn" onclick="serial.sendLiveCode(monacoeditor.getValue())"><i class='bx bx-play bx-lg' ></i></a>
+    <a class="liveCodebtn" onclick="serial.sendLiveCode(editor.getValue())"><i class='bx bx-play bx-lg' ></i></a>
     <div id="main">
       <article>
         <div id="editor">
@@ -75,56 +69,15 @@
         <div id="terminal-container" class="terminal"></div>
     </footer>
   </div>
-    <xml id="xml_toolbox" style="display: none"></xml>
+  <script src="node_modules/ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
   <script>
-    require.config({ paths: { vs: './node_modules/monaco-editor/min/vs' } });
-
-    require(['vs/editor/editor.main'], function () {
-    // Through the options literal, the behaviour of the editor can be easily customized.
-    // Here are a few examples of config options that can be passed to the editor.
-    // You can also call editor.updateOptions at any time to change the options.
-    monacoeditor = monaco.editor.create(document.getElementById('editor'), {
-        value: global.require('./assets/js/python.html.js'),
-        language: 'python',
-        lineNumbers: 'on',
-        scrollBeyondLastLine: false,
-        readOnly: false,
-        theme: 'vs',
-        scrollbar: {
-          useShadows: false,
-          verticalHasArrows: true,
-          horizontalHasArrows: true,
-          vertical: 'visible',
-          horizontal: 'visible',
-          verticalScrollbarSize: 17,
-          horizontalScrollbarSize: 17,
-          arrowSize: 30
-        }
-    });
-    });
-    // Save Monaco's amd require and restore Node's require
-    var amdRequire = global.require;
-    global.require = nodeRequire;
-    // ... remainder of example below
     const { Notyf } = require('notyf');
     const updateManager = require('./assets/js/updateManager.js');
     const notyf = new Notyf({types: [{dismissible: true}]});
     const dialogCreator = require('./assets/js/navigation.js');
     const serial = require('./assets/js/serial.js')
     const projectManager = require('./assets/js/project_manager.js');
-    const hotkeys = require('hotkeys-js');
-    hotkeys('ctrl+s, command+s', function() {
-      projectManager.saveProject('python', monacoeditor.getValue())
-    });
-    hotkeys.filter = function(event){
-      return true;
-    }
-
-    function controlVersion(version){
-      if(1.6 > parseFloat(version)){
-        console.log("New Update");
-      }
-    }
+    const editor = require('./assets/js/python.html.js')
   </script>
 </body>
 </html>

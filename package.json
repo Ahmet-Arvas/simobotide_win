@@ -37,21 +37,18 @@
         "start": "electron ."
     },
     "dependencies": {
-        "@codemirror/lang-python": "github:codemirror/lang-python",
         "ace-builds": "^1.11.1",
         "axios": "^0.27.2",
         "blockly": "^8.0.3",
         "boxicons": "^2.1.2",
+        "electron-context-menu": "^3.5.0",
         "hotkeys-js": "^3.9.5",
         "i18next": "^21.9.1",
         "i18next-fs-backend": "^1.1.5",
-        "jquery": "^3.6.1",
-        "jsdom": "^20.0.0",
-        "monaco-editor": "^0.34.0",
         "node-gyp": "^9.0.0",
         "notyf": "^3.10.0",
         "serialport": "^10.4.0",
-        "sprintf-js": "^1.1.2",
+        "shell": "^0.9.4",
         "xterm": "^4.19.0",
         "xterm-addon-fit": "^0.5.0"
     }

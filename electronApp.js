@@ -2,6 +2,18 @@
 const {app, BrowserWindow, ipcMain} = require('electron')
 const path = require('path')
 const fs = require("fs");
+const contextMenu = require('electron-context-menu');
+
+
+contextMenu({
+  showLookUpSelection : false,
+  showLearnSpelling : false,
+  showSearchWithGoogle : false,
+  showSelectAll : false,
+  showCopyImage : false,
+  showInspectElement : false,
+});
+
 
 /// create a global var, wich will keep a reference to out loadingScreen window
 let loadingScreen;
