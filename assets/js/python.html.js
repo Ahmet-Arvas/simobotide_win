@@ -76,29 +76,30 @@ close_footer_btn.addEventListener('click', function() {
 
 fullscreen_btn.addEventListener('click', function() {
     if (footer.style.position == "absolute") {
-    close_footer_btn.style.display = "flex";
-    footer.style.position = "static";
-    footer.style.height = "20vh";
-    fullscreen_btn.style.bottom = close_footer_btn.style.bottom;
-    fullscreen_btn.style.borderRadius = "10px 0px 0px 0px";
-    fullscreen_btn.style.borderBottom = "0px";
-    fullscreen_btn.innerHTML = "<i class='bx bx-fullscreen'></i>";
-    document.getElementsByClassName("terminal")[0].style.height = "20vh";
-    document.getElementsByClassName("terminal")[0].children[0].style.height = "20vh";
-    serial.xterm_fit();
+        close_footer_btn.style.display = "flex";
+        footer.style.position = "static";
+        footer.style.height = "20vh";
+        fullscreen_btn.style.bottom = close_footer_btn.style.bottom;
+        fullscreen_btn.style.borderRadius = "10px 0px 0px 0px";
+        fullscreen_btn.style.borderBottom = "0px";
+        fullscreen_btn.innerHTML = "<i class='bx bx-fullscreen'></i>";
+        document.getElementsByClassName("terminal")[0].style.height = "20vh";
+        document.getElementsByClassName("terminal")[0].children[0].style.height = "20vh";
+        serial.xterm_fit();
     } else {
-    aside.style.zIndex = "25";
-    footer.style.position = "absolute";
-    close_footer_btn.style.display = "none";
-    footer.style.height = "100vh";
-    footer.style.opacity = "1";
-    fullscreen_btn.style.bottom = "calc(100vh - 25px)";
-    fullscreen_btn.style.borderRadius = "0px 0px 0px 10px";
-    fullscreen_btn.style.borderBottom = "1px solid #cacaca";
-    fullscreen_btn.innerHTML = "<i class='bx bx-exit-fullscreen'></i>";
-    document.getElementsByClassName("terminal")[0].style.height = "100vh";
-    document.getElementsByClassName("terminal")[0].children[0].style.height = "100vh";
-    serial.xterm_fit();
+        footer.style.zIndex = "20";
+        aside.style.zIndex = "25";
+        footer.style.position = "absolute";
+        close_footer_btn.style.display = "none";
+        footer.style.height = "100vh";
+        footer.style.opacity = "1";
+        fullscreen_btn.style.bottom = "calc(100vh - 25px)";
+        fullscreen_btn.style.borderRadius = "0px 0px 0px 10px";
+        fullscreen_btn.style.borderBottom = "1px solid #cacaca";
+        fullscreen_btn.innerHTML = "<i class='bx bx-exit-fullscreen'></i>";
+        document.getElementsByClassName("terminal")[0].style.height = "100vh";
+        document.getElementsByClassName("terminal")[0].children[0].style.height = "100vh";
+        serial.xterm_fit();
     }
     
 });
