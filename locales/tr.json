@@ -46,5 +46,12 @@
         "selectPort" : "Port Seç",
         "uploadCode" : "Kodu Simobot'a Yükle",
         "saveProject" : "Projeyi Kaydet"
+    },
+    "alerts":{
+        "disconnected" : "Bağlantı Kesildi!",
+        "pleaseConnect" : "Lütfen bir port'a bağlanın.",
+        "connected" : "Port ile bağlantı kuruldu.",
+        "noNewUpdates" : "No new updates found",
+        "redirectUpdatePage" : "You will be directed to the update page."
     }
 }

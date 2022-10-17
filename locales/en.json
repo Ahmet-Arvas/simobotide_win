@@ -46,5 +46,10 @@
         "selectPort" : "Select a Port",
         "uploadCode" : "Upload Code to Simobot",
         "saveProject" : "Save Project"
+    },
+    "alerts":{
+        "disconnected" : "Disconnected!",
+        "pleaseConnect" : "Please connect a port",
+        "connected" : "Connected to port"
     }
 }

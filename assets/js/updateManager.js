@@ -10,7 +10,7 @@ class updateManagement{
     }
     checkAppUpdate(notifier=0){
         var self = this;
-        axios.get('https://simobot.com/api/versioncontrol/check.json')
+        axios.get('https://simobot.com/api/versioncontrol/check.json')    
         .then(function (response) {
             if(parseFloat(response["data"]["version"]) > 1.0 ){
                 console.log(response);
@@ -52,7 +52,7 @@ class updateManagement{
 	}
     openFirmwareUpdater(){
         vex.dialog.confirm({
-            unsafeMessage: "You will redirected to update page, are you confirm. ",
+            unsafeMessage: "<span data-i18n='alerts.redirectUpdatePage'>You will be directed to the update page.</span>",
             showCloseButton: true,
             escapeButtonCloses: true,
             overlayClosesOnClick: true,
@@ -65,6 +65,7 @@ class updateManagement{
                 }
             }
         })
+        i18n.syncPage();
     }
 
     firmwareCheck(){
@@ -79,7 +80,8 @@ class updateManagement{
                         resolve(dataBox);
                     }
                     else{
-                        notyf.success({message: "No New Updates", dismissible: true});
+                        notyf.success({message: '<span data-i18n="alerts.noNewUpdates">No new updates found</span>', dismissible: true});
+                        i18n.syncPage();
                         dataBox[0] = 0;
                         resolve(dataBox);
                     }

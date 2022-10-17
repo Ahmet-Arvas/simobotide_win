@@ -53,17 +53,17 @@ class Communication{
     */
     portSelected(select_element) {
         self.select_element = select_element; 
-        console.log(self.port);
         if (self.port.isOpen == true || select_element.value == "closePort"){
           this.closePort();
         }
         if(select_element.value != "closePort"){
           self.port = new SerialPort({ path: `${self.select_element.value}`, baudRate: 9600 },function(err) {
             if(err){
-              notyf.error(err.toString());
+              notyf.error({message: err.toString(), dismissible: true});
             }
             else{
-              notyf.success({message: 'Connected to port', dismissible: true});
+              notyf.success({message: '<span data-i18n="alerts.connected">Connected to port</span>', dismissible: true});
+              i18n.syncPage();
             }
           })
           this.sendData('\x03'); // For exit working procces
@@ -97,7 +97,8 @@ class Communication{
               self.port.once('data', (data) => {resolve(parsed[parsed.length-1]);});
             });
           }else{
-            notyf.error("Please connect a port after do update");
+            notyf.error({message: '<span data-i18n="alerts.pleaseConnect">Please connect a port</span>', dismissible: true});
+            i18n.syncPage();
             resolve(undefined);
           }
         })
@@ -118,7 +119,8 @@ class Communication{
         }
         this.sendData("\u0004");
       }else{
-        notyf.error("Please connect a port");
+        notyf.error({message: '<span data-i18n="alerts.pleaseConnect">Please connect a port</span>', dismissible: true});
+        i18n.syncPage();
       }
       
     }
@@ -149,7 +151,8 @@ exec(open("${filename}", "r").read(),globals())
           this.sendData(lines[i] + "\n\r");
         }
       }else{
-        notyf.error("Please connect a port");
+        notyf.error({message: '<span data-i18n="alerts.pleaseConnect">Please connect a port</span>', dismissible: true});
+        i18n.syncPage();
       }
     }
 
@@ -163,7 +166,8 @@ exec(open("${filename}", "r").read(),globals())
       if(err){
         if(silence == 0){notyf.error(err.toString());}
       }else{
-        if(silence == 0){notyf.success({message: 'Disconnected!', dismissible: true});}
+        if(silence == 0){notyf.success({message: '<span data-i18n="alerts.disconnected">Disconnected!</span>', dismissible: true});}
+        i18n.syncPage();
       }
     });
   }
