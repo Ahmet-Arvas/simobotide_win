@@ -69,7 +69,10 @@ let workspace = Blockly.inject(blocklyDiv, {
     pinch: true,
   },
   trashcan: true,
+  media: './node_modules/blockly/media/'
 });
+
+
 Blockly.Toolbox.prototype.handleToolboxItemResize=function(){
 	var ToolboxDiv = document.getElementsByClassName("blocklyToolboxDiv blocklyNonSelectable");
 	var Trash = document.getElementsByClassName("blocklyTrash");
