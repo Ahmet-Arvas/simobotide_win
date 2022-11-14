@@ -1,8 +1,12 @@
 var xmltext = `
-<category name="Motors" colour="#FF8C1A">
+<category name="Action" colour="#4A90E2">
     <block type="go_forward"></block>
-    <block type="init_motor"></block>
-
+    <block type="go_forward_seconds"></block>
+    <block type="stop_motors"></block>
+</category>
+<category name="Show" colour="#9013FE">
+    <block type="light_led"></block>
+    <block type="light_onboard_led"></block>
 </category>
 <category name="Controls" colour="%{BKY_LOGIC_HUE}">
     <block type="controls_if"></block>
@@ -33,9 +37,6 @@ var xmltext = `
     </block>
     <block type="controls_forEach"></block>
     <block type="controls_flow_statements"></block>
-  </category>
-
-  <category name="Loops" colour="%{BKY_LOOPS_HUE}">
   </category>
 
   <category name="Operators" colour="%{BKY_MATH_HUE}">

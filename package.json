@@ -32,7 +32,7 @@
         "electron-builder": "^23.1.0"
     },
     "scripts": {
-        "pack": "electron-builder --win --ia32",
+        "pack": "electron-builder --win",
         "dist": "electron-builder",
         "start": "electron ."
     },

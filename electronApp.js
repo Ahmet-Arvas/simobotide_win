@@ -56,7 +56,7 @@ function createWindow (location) {
   mainWindow.loadFile(location)
   mainWindow.setMenu(null)
   // Open the DevTools.
-  mainWindow.webContents.openDevTools()
+  //mainWindow.webContents.openDevTools()
 
   /// keep listening on the did-finish-load event, when the mainWindow content has loaded
   mainWindow.webContents.on('did-finish-load', () => {
