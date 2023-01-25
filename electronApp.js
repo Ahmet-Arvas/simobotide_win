@@ -1,17 +1,17 @@
 // Modules to control application life and create native browser window
-const {app, BrowserWindow, ipcMain} = require('electron')
+const { app, BrowserWindow, ipcMain } = require('electron')
 const path = require('path')
 const fs = require("fs");
 const contextMenu = require('electron-context-menu');
 
 
 contextMenu({
-  showLookUpSelection : false,
-  showLearnSpelling : false,
-  showSearchWithGoogle : false,
-  showSelectAll : false,
-  showCopyImage : false,
-  showInspectElement : false,
+  showLookUpSelection: false,
+  showLearnSpelling: false,
+  showSearchWithGoogle: false,
+  showSelectAll: false,
+  showCopyImage: false,
+  showInspectElement: false,
 });
 
 
@@ -39,7 +39,7 @@ const createLoadingScreen = () => {
     loadingScreen.show();
   });
 };
-function createWindow (location) {
+function createWindow(location) {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     minWidth: 800,
@@ -47,29 +47,31 @@ function createWindow (location) {
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: true,
-      contextIsolation: false,},
+      contextIsolation: false,
+    },
     /// show to false mean than the window will proceed with its lifecycle, but will not render until we will show it up
-    show: false})
+    show: false
+  })
 
   app.allowRendererProcessReuse = false;
   // and load the index.html of the app.
   mainWindow.loadFile(location)
   mainWindow.setMenu(null)
   // Open the DevTools.
-  //mainWindow.webContents.openDevTools()
+  mainWindow.webContents.openDevTools()
 
   /// keep listening on the did-finish-load event, when the mainWindow content has loaded
   mainWindow.webContents.on('did-finish-load', () => {
-  /// then close the loading screen window and show the main window
-  if (loadingScreen) {
-    loadingScreen.close();
-  }
-  mainWindow.maximize();
-  mainWindow.show();
-});
+    /// then close the loading screen window and show the main window
+    if (loadingScreen) {
+      loadingScreen.close();
+    }
+    mainWindow.maximize();
+    mainWindow.show();
+  });
 
 
-return mainWindow;
+  return mainWindow;
 }
 
 // This method will be called when Electron has finished
