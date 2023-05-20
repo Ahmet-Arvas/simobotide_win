@@ -65,22 +65,55 @@ class CreateDialog{
         </div>
         <div class="tab tab_tutorial">
             <h2 data-i18n="navigation.tabControl.tutorial">Tutorial</h2>
-            <div class="cards customScrollbar">
-                <div class="card"></div>
-                <div class="card"></div>
-                <div class="card"></div>
-                <div class="card"></div>
-                <div class="card"></div>
-                <div class="card"></div>	
+            <div class="card-container customScrollbar">
+                <div class="card">
+                    <img src="images/puzzle.gif" alt="Puzzle">
+                    <h3>Temel Blokları Öğren</h3>
+                    <p>Bloklar hakkında temel bir ders al ve Simobot'un kontrolünü ele geçir.</p>
+                </div>
+                <div class="card">
+                    <img src="images/complex.gif" alt="Machine">
+                    <h3>Simobot'un nasıl çalıştığını öğren.</h3>
+                    <p>Simobot'ta kullanılan sistemler hakkında bilgi sahibi ol ve kendini geliştir.</p>
+                </div>
             </div>
         </div>
         <div class="tab">
             <h2 data-i18n="navigation.tabControl.units">Units</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil ex asperiores excepturi, adipisci est, tempore suscipit magnam error odio expedita nisi facere culpa in reiciendis laboriosam possimus consequatur a sit.</p>
+            <div class="settings">
+                <div class="row">
+                <div class="category_name">Filtrele</div>
+                <div class="dropdown">
+                    <select id="setUnitsFilter">
+                        <option value="nothing"> Türü Seç </option>
+                        <option value="blocks"> Blocks </option>
+                        <option value="python"> Python </option>
+                    </select>
+                </div>
+                </div>
+            </div>
+            <div class="unitscontainer">
+            <div class="unitscard">
+              <div class="image" style="background-image: url('images/motors.jpg');"></div>
+              <div class="content">
+                <h3>Motorlar ve Hareket</h3>
+                <p>Motorlar hakkında temel bir ders al ve Simobot'un kontrolünü ele geçir.</p>
+                <a href="#"><i class='bx bxs-right-arrow'></i></a>
+              </div>
+            </div>
+            <div class="unitscard">
+              <div class="image" style="background-image: url('images/motors.jpg');"></div>
+              <div class="content">
+                <h3>Motorlar ve Hareket</h3>
+                <p>Motorlar hakkında temel bir ders al ve Simobot'un kontrolünü ele geçir.</p>
+                <a href="#"><i class='bx bxs-right-arrow'></i></a>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="tab">
             <h2 data-i18n="navigation.tabControl.create">Create</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil ex asperiores excepturi, adipisci est, tempore suscipit magnam error odio expedita nisi facere culpa in reiciendis laboriosam possimus consequatur a sit.</p>
+            <p>Yeni Fikirler sekmesinde henüz yeni projeler bulunmamaktadır. Ancak, gelecekte bu sekmede heyecan verici fikirler ve projeler paylaşmayı planlıyoruz. Takipte kalın!</p>
         </div>
         <div class="tab">
             <h2 data-i18n="navigation.tabControl.myProjects">My Projects</h2>
@@ -88,7 +121,7 @@ class CreateDialog{
         </div>
         <div class="tab">
             <h2 data-i18n="navigation.tabControl.help">Help</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil ex asperiores excepturi, adipisci est, tempore suscipit magnam error odio expedita nisi facere culpa in reiciendis laboriosam possimus consequatur a sit.</p>
+            <p>Daha fazla bilgi ve yardım için lütfen masaüstü uygulamamızın yardım sekmesini ziyaret edin. Yardım sekmesine ulaşmak için aşağıdaki bağlantıyı kullanabilirsiniz: <a href="simobot.com/app/help">Yardım</a></p>
         </div>
         <div class="tab">
             <h2 data-i18n="navigation.tabControl.settings">Settings</h2>
@@ -103,21 +136,11 @@ class CreateDialog{
                         </select>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="category_name" data-i18n="navigation.settings.theme">Theme</div>
-                    <div class="dropdown">
-                        <select id="themeSelect" ></select>
-                    </div>
-                </div>
                 <div class="row" style="text-align:center ">
                     <a data-i18n="navigation.settings.checkAppUpdates" onclick="updateManager.checkAppUpdate();">Check App Updates</a>
                 </div>
                 <div class="row" style="text-align:center ">
-                    <a data-i18n="navigation.settings.checkFirmwareUpdates" onclick="updateManager.openFirmwareUpdater()">Check SimobotHeart Updates</a>
-                </div>
-                <div class="row" style="text-align:center ">
-                    <a data-i18n="navigation.settings.checkUnitUpdates">Check Unit Updates</a>
-                    
+                    <a data-i18n="navigation.settings.checkFirmwareUpdates" onclick="updateManager.openFirmwareUpdater()">Check Simobot Firmware Updates</a>
                 </div>
             </div>
         </div>
