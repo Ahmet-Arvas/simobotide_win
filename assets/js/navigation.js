@@ -80,36 +80,36 @@ class CreateDialog{
         </div>
         <div class="tab">
             <h2 data-i18n="navigation.tabControl.units">Units</h2>
-            <div class="settings">
-                <div class="row">
-                <div class="category_name">Filtrele</div>
-                <div class="dropdown">
-                    <select id="setUnitsFilter">
-                        <option value="nothing"> Türü Seç </option>
-                        <option value="blocks"> Blocks </option>
-                        <option value="python"> Python </option>
-                    </select>
+            <div class="tabs">
+                <div class="tab-btn active" style="border-radius: 10px 0px 0px 0px" data-tab="tab1">Blok Kodlama</div>
+                <div class="tab-btn" style="border-radius: 0px 10px 0px 0px" data-tab="tab2">Python</div>
+            </div>
+            <div class="tab-content" id="tab1">
+                <h2>Blok kodlama için üniteler</h2>
+                <div class="unitscontainer">
+                    <div class="unitscard">
+                        <div class="image" style="background-image: url('images/motors.jpg');"></div>
+                        <div class="content">
+                            <h3>Motorlar ve Hareket</h3>
+                            <p>Motorlar hakkında temel bir ders al ve Simobot'un kontrolünü ele geçir.</p>
+                            <a href="#"><i class='bx bxs-right-arrow'></i></a>
+                        </div>
+                    </div>
                 </div>
+            </div>
+            <div class="tab-content" id="tab2">
+                <h2>Python için üniteler</h2>
+                <div class="unitscontainer">
+                    <div class="unitscard">
+                        <div class="image" style="background-image: url('images/motors.jpg');"></div>
+                        <div class="content">
+                            <h3>Motorlar ve Hareket</h3>
+                            <p>Motorlar hakkında temel bir ders al ve Simobot'un kontrolünü ele geçir.</p>
+                            <a href="#"><i class='bx bxs-right-arrow'></i></a>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="unitscontainer">
-            <div class="unitscard">
-              <div class="image" style="background-image: url('images/motors.jpg');"></div>
-              <div class="content">
-                <h3>Motorlar ve Hareket</h3>
-                <p>Motorlar hakkında temel bir ders al ve Simobot'un kontrolünü ele geçir.</p>
-                <a href="#"><i class='bx bxs-right-arrow'></i></a>
-              </div>
-            </div>
-            <div class="unitscard">
-              <div class="image" style="background-image: url('images/motors.jpg');"></div>
-              <div class="content">
-                <h3>Motorlar ve Hareket</h3>
-                <p>Motorlar hakkında temel bir ders al ve Simobot'un kontrolünü ele geçir.</p>
-                <a href="#"><i class='bx bxs-right-arrow'></i></a>
-              </div>
-            </div>
-          </div>
         </div>
         <div class="tab">
             <h2 data-i18n="navigation.tabControl.create">Create</h2>
@@ -246,11 +246,36 @@ let jsondata =`
             tabs[this.value].style.display = "flex";
             controls[this.value].setAttribute("id", "control-selected");
         }
+        
+        var tabButtons = document.querySelectorAll('.tab-btn');
+        var tabContents = document.querySelectorAll('.tab-content');
+        
+        tabButtons.forEach(function(tabButton) {
+          tabButton.addEventListener('click', function() {
+            var tabId = this.getAttribute('data-tab');
+        
+            tabButtons.forEach(function(btn) {
+              btn.classList.remove('active');
+            });
+        
+            tabContents.forEach(function(content) {
+              content.style.display = 'none';
+            });
+        
+            this.classList.add('active');
+            document.getElementById(tabId).style.display = 'block';
+          });
+        });
+        
+        // Varsayılan olarak ilk sekme açık olarak başlatılıyor
+        tabButtons[0].click();
+
         this.listProjects(document.getElementById("recentProjects"), document.getElementById("projects"), 5)
         document.getElementById("recentProjects").addEventListener('wheel', function(e) {
             if (e.deltaY > 0) document.getElementById("recentProjects").scrollLeft += 50;
             else document.getElementById("recentProjects").scrollLeft -= 50;
         });
+        
     }
     listProjects(rpelement_important, projectselement_important, count = 0) {
         if(rpelement_important != 0){

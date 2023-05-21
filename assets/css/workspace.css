@@ -3,7 +3,31 @@
   min-height: 100vh;
   flex-direction: column;
 }
-
+#pagination{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px;
+}
+.eduNav{
+  position:relative;
+  margin: auto;
+  top: 0;
+  bottom: 10px;
+  font-size: 60px;
+  border: none;
+  text-decoration: none;
+  color: darkcyan;
+  cursor: pointer;
+  background-color: #00000000;
+}
+.eduNav:hover{
+  color: rgb(40, 90, 90);
+}
+.eduNav:disabled{
+  color: #000;
+  cursor: default;
+}
 header{
   align-items: center;
   display: flex;

@@ -43,7 +43,71 @@ close_footer_btn.addEventListener('click', function() {
 
 var close_aside_btn =  document.getElementById('close_aside');
 var aside = document.getElementById('aside')
+if(projectManager.parseURLParams(location.href)["edu"] == undefined){
+    console.log("Edu yok")
+}
+else{
+    close_aside_btn.style.display = "flex";
+    aside.style.display = "flex";
+    console.log(projectManager.parseURLParams(location.href)["edu"])
+    const fs = require('fs');
 
+    fs.readFile("edu/"+projectManager.parseURLParams(location.href)["edu"] + ".json", 'utf8', (err, data) => {
+    if (err) {
+        console.error(err);
+        return;
+    }
+
+    const pages = JSON.parse(data);
+    let currentPage = 0;
+    const totalPages = pages.length;
+
+    showPage(currentPage);
+    updatePagination();
+
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    prevBtn.addEventListener('click', () => {
+        if (currentPage > 0) {
+        currentPage--;
+        showPage(currentPage);
+        updatePagination();
+        }
+    });
+
+    nextBtn.addEventListener('click', () => {
+        if (currentPage < totalPages - 1) {
+        currentPage++;
+        showPage(currentPage);
+        updatePagination();
+    }
+    });
+
+    function showPage(index) {
+        const contentDiv = document.getElementById('content');
+        contentDiv.innerHTML = pages[index].content;
+    }
+
+    function updatePagination() {
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        if (currentPage === 0) {
+        prevBtn.disabled = true;
+        } else {
+        prevBtn.disabled = false;
+        }
+
+        if (currentPage === totalPages - 1) {
+        nextBtn.disabled = true;
+        } else {
+        nextBtn.disabled = false;
+        }
+    }
+    });
+
+}
 close_aside_btn.addEventListener('click', function(){
     if (aside.classList.contains('aside-hide')){
     aside.classList.remove('aside-hide');

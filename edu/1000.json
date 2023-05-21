@@ -1,0 +1,14 @@
+[
+    {
+      "title": "Hareket Nedir",
+      "content": "<div id='edu_head'><i class='bx bx-book-content bx-md' ></i><span>Motor Nedir</span></div><div id='edu_content' class='customScrollbar'>Merhaba</div>"
+    },
+    {
+      "title": "Page 2",
+      "content": "<h2>Page 2 Content</h2><p>This is the content of Page 2.</p>"
+    },
+    {
+      "title": "Page 3",
+      "content": "<h2>Page 3 Content</h2><p>This is the content of Page 3.</p>"
+    }
+  ]

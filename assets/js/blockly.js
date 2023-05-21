@@ -127,7 +127,7 @@ var onresize = function(e) {
 
 function updatecode(event) {
   var code = Blockly.Python.workspaceToCode(workspace);
-  document.getElementById('textarea').innerHTML = code;
+  //document.getElementById('textarea').innerHTML = code;
 }
 
 workspace.addChangeListener(updatecode);

@@ -56,13 +56,11 @@
       <a class="liveCodebtn" onclick="serial.sendLiveCode(document.getElementById('textarea').value)"><i class='bx bx-play bx-lg' ></i></a>
       <a id="close_aside" class="close_aside" id="close_aside"><i class='bx bx-dots-vertical-rounded' style="font-size: 40px; position: absolute;"></i></a>
       <aside id="aside">
-        <div id="edu_head">
-            <i class='bx bx-book-content bx-md' ></i>
-            <span>Ders 1: Pico Nedir</span>
-        </div>
-        <div id="edu_content" class="customScrollbar">
-          <div id="error"></div>
-          <textarea id="textarea" rows="8" cols="8"></textarea>
+        <div id='error'></div>
+        <div id="content"></div>
+        <div id="pagination">
+          <button class="eduNav" id="prevBtn" disabled><i class='bx bx-chevron-left-circle'></i></button>
+          <button class="eduNav" id="nextBtn"><i class='bx bx-chevron-right-circle'></i></button>
         </div>
         <br>
       </aside>
