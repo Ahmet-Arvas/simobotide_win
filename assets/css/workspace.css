@@ -1,4 +1,6 @@
 #content{
+  display: flex;
+  flex-direction: column;
   overflow-y: scroll;
   min-height: calc(100% - 60px);
 }
