@@ -87,6 +87,22 @@ else{
     function showPage(index) {
         const contentDiv = document.getElementById('content');
         contentDiv.innerHTML = pages[index].content;
+        if (pages[index].title == "Fullscreen"){
+            aside.style.width = "100vw";
+            aside.style.height = "calc(100vh - 45px)";
+            aside.style.zIndex = "1110"
+            aside.style.top = "auto"
+            aside.style.bottom = "auto"
+            aside.style.borderRadius = "0px"
+        }
+        else{
+            aside.style.width = "400px";
+            aside.style.height = "auto";
+            aside.style.zIndex = "3"
+            aside.style.top = "110px"
+            aside.style.bottom = "134px"
+            aside.style.borderRadius = "15px 0px 0px 15px"
+        }
     }
 
     function updatePagination() {
@@ -110,9 +126,11 @@ else{
 }
 close_aside_btn.addEventListener('click', function(){
     if (aside.classList.contains('aside-hide')){
+    aside.style.width = "400px"
     aside.classList.remove('aside-hide');
     close_aside_btn.classList.remove('closed_aside_btn');
     }else{
+    aside.style.width = "0px"
     aside.classList.add('aside-hide');
     close_aside_btn.classList.add('closed_aside_btn');
     }
