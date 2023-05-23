@@ -67,7 +67,7 @@ class CreateDialog{
             <h2 data-i18n="navigation.tabControl.tutorial">Tutorial</h2>
             <div class="card-container customScrollbar">
                 <div class="card">
-                    <img src="images/puzzle.gif" alt="Puzzle">
+                    <img src="images/coder.gif" alt="Puzzle">
                     <h3>Temel Blokları Öğren</h3>
                     <p>Bloklar hakkında temel bir ders al ve Simobot'un kontrolünü ele geçir.</p>
                 </div>
@@ -92,7 +92,7 @@ class CreateDialog{
                         <div class="content">
                             <h3>Motorlar ve Hareket</h3>
                             <p>Motorlar hakkında temel bir ders al ve Simobot'un kontrolünü ele geçir.</p>
-                            <a href="#"><i class='bx bxs-right-arrow'></i></a>
+                            <a onclick="dialogCreator.selectIdeType('1000')"><i class='bx bxs-right-arrow'></i></a>
                         </div>
                     </div>
                 </div>
@@ -358,13 +358,13 @@ let jsondata =`
                     }, 700);
                     
                 } else {
-                    console.log("istemion");
+                    console.log("-");
                 }
             }
         })
         
     }
-    selectIdeType(){
+    selectIdeType(edu="false"){
         vex.dialog.open({
             unsafeMessage: `
             <label class="vex-dialog-input">
@@ -390,7 +390,7 @@ let jsondata =`
                 </div>
             </div>
             </label>
-            <button data-i18n="newProjectPrompt.submit" class="startbutton" id="createProject" onclick="dialogCreator.createProject()" style="background-color: #4ACBE3; margin-top:10px">
+            <button data-i18n="newProjectPrompt.submit" class="startbutton" id="createProject" onclick="dialogCreator.createProject(${edu})" style="background-color: #4ACBE3; margin-top:10px">
             Create!
             </button>
             </div>
@@ -425,7 +425,7 @@ let jsondata =`
         return answer;
     }
 
-    createProject(){
+    createProject(edu = "false"){
         let form_projectname = [document.getElementById('form_projectname').value];
         let form_ideType = document.querySelector('input[name="radio"]:checked').value;
         if(form_projectname.join(' ').toString().length > 30 || form_projectname.join(' ').toString().length < 3){
@@ -437,7 +437,7 @@ let jsondata =`
                 console.log(form_projectname.join(' ').toString());
                 counter +=1;
             }
-            projectManager.newProject(form_projectname.join(' ').toString().replace(/[\\"']/g, '\\$&').replace(/\u0000/g, '\\0'), form_ideType)
+            projectManager.newProject(form_projectname.join(' ').toString().replace(/[\\"']/g, '\\$&').replace(/\u0000/g, '\\0'), form_ideType, edu)
         }
     }
 }

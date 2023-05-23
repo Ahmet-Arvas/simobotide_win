@@ -2,13 +2,15 @@ var xmltext = `
 <category name="Hareket" colour="#4A90E2">
     <block type="go_forward"></block>
     <block type="go_backward"></block>
-
+    <block type="right"></block>
+    <block type="left"></block>
     <block type="go_forward_seconds"></block>
     <block type="stop_motors"></block>
 </category>
 <category name="Göster" colour="#9013FE">
-    <block type="light_led"></block>
-    <block type="light_onboard_led"></block>
+    <block type="draw_pixels"></block>
+    <block type="draw_text"></block>
+    <block type="clean_screen"></block>
 </category>
 <category name="Kontroller" colour="%{BKY_LOGIC_HUE}">
     <block type="wait"></block>
@@ -42,7 +44,7 @@ var xmltext = `
     <block type="controls_flow_statements"></block>
   </category>
 
-  <category name="Operators" colour="%{BKY_MATH_HUE}">
+  <category name="Operatörler" colour="%{BKY_MATH_HUE}">
     <block type="logic_compare"></block>
     <block type="logic_operation"></block>
     <block type="logic_negate"></block>
@@ -138,7 +140,7 @@ var xmltext = `
     <block type="math_random_float"></block>
   </category>
 
-  <category name="Text" colour="%{BKY_TEXTS_HUE}">
+  <category name="Metin" colour="%{BKY_TEXTS_HUE}">
     <block type="text"></block>
     <block type="text_join"></block>
     <block type="text_append">
@@ -216,7 +218,7 @@ var xmltext = `
     </block>
   </category>
 
-  <category name="Lists" colour="%{BKY_LISTS_HUE}">
+  <category name="Listeler" colour="%{BKY_LISTS_HUE}">
     <block type="lists_create_with">
       <mutation items="0"></mutation>
     </block>
@@ -270,8 +272,8 @@ var xmltext = `
 
   <sep></sep>
 
-  <category name="Variables" colour="%{BKY_VARIABLES_HUE}" custom="VARIABLE"></category>
-  <category name="Functions" colour="%{BKY_PROCEDURES_HUE}" custom="PROCEDURE"></category>
+  <category name="Değişkenler" colour="%{BKY_VARIABLES_HUE}" custom="VARIABLE"></category>
+  <category name="Fonksiyonlar" colour="%{BKY_PROCEDURES_HUE}" custom="PROCEDURE"></category>
 
   <sep></sep>
 `

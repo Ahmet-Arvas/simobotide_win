@@ -1,7 +1,12 @@
 body, html{
   background-color: #1E1E1E;
 }
-
+h2 {
+  color: blue;
+}
+span.function {
+  color: purple;
+}
 aside {
   flex-direction: column;
   display: flex;

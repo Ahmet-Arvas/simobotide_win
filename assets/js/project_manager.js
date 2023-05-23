@@ -56,7 +56,11 @@ let jsondata =`
                         let data = JSON.parse(rawdata);
                         if(data["name"] == name){
                             if(data["type"] == "blocks"){
-                                window.location.href = 'blocks.html?name='+file+"&edu=1000";
+                                let lesson = "";
+                                if(data["edu"]!="false"){
+                                    lesson = "&edu="+data["edu"]                                  
+                                }
+                                window.location.href = 'blocks.html?name='+file+ lesson;
                             }else{
                                 window.location.href = 'python.html?name='+file;
                             }

@@ -40,6 +40,44 @@ Blockly.common.defineBlocksWithJsonArray([
   
     },
     {
+      "type": "right",
+      "message0": "Sağ Motoru Çalıştır %1",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "speed",
+          "options": [
+            ["Çok Hızlı", "200"],
+            ["Hızlı", "100"],
+            ["Yavaş", "50"]
+          ]
+        }
+      ],
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": '#4A90E2',                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+  
+    },
+    {
+      "type": "left",
+      "message0": "Sol Motoru Çalıştır %1",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "speed",
+          "options": [
+            ["Çok Hızlı", "200"],
+            ["Hızlı", "100"],
+            ["Yavaş", "50"]
+          ]
+        }
+      ],
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": '#4A90E2',                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+  
+    },
+    {
       "type": "go_forward_seconds",
       "message0": " %1 Saniye boyunca %2 hızı ile %3 git",
       "args0": [
@@ -111,30 +149,66 @@ Blockly.common.defineBlocksWithJsonArray([
       "colour": '%{BKY_TEXTS_HUE}'
     },
     {
-      "type": "light_led",
-      "message0": "Light %1 LED",
+      "type": "draw_pixels",
+      "message0": "X %1 Y %2 Koordinatlarına Piksel Çiz",
       "args0": [
         {
-          "type": "field_dropdown",
-          "name": "pin",
-          "options": [
-            ["Red", "15"],
-            ["Green", "14"],
-            ["Yellow", "13"]
-          ]
+          "type": "field_number",
+            "name": "x",
+            "value": 0,
+            "min": 0,
+            "max": 100,
+            "precision": 0.5
+        },
+        {
+          "type": "field_number",
+            "name": "y",
+            "value": 0,
+            "min": 0,
+            "max": 100,
+            "precision": 0.5
         }
       ],
       "previousStatement": null,
       "nextStatement": null,
-      "colour": '#9013FE',
+      "colour": '%{BKY_TEXTS_HUE}'
+    },
+    {
+      "type": "clean_screen",
+      "message0": "Ekranı Temizle",
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": '%{BKY_TEXTS_HUE}'
   
     },
     {
-      "type": "light_onboard_led",
-      "message0": "Light onboard LED",
+      "type": "draw_text",
+      "message0": "X %1 Y %2 Koordinatlarına %3 Yazısını Çiz",
+      "args0": [
+        {
+          "type": "field_number",
+            "name": "x",
+            "value": 0,
+            "min": 0,
+            "max": 128,
+            "precision": 1
+        },
+        {
+          "type": "field_number",
+            "name": "y",
+            "value": 0,
+            "min": 0,
+            "max": 64,
+            "precision": 1
+        },
+        {
+          "type": "field_input",
+            "name": "text",
+            "value": "Metin"
+        },
+      ],
       "previousStatement": null,
       "nextStatement": null,
-      "colour": '#9013FE',
-  
+      "colour": '%{BKY_TEXTS_HUE}'
     }
   ]);

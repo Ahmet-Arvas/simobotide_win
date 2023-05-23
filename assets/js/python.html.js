@@ -35,7 +35,7 @@ if (fs.existsSync(userHomeDir+'/Documents/Simobot IDE/Projects/' + projectManage
         var doc = data;
     }
 }else{
-    var doc = `import simobot etc`
+    var doc = `import simobot`
 }
 editor.setValue(doc);
 

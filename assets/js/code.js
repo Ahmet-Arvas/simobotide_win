@@ -14,6 +14,20 @@ Blockly.Python['go_backward'] = function(block) {
   code+='\nsimobot.catMove.startMotor(0, "both",'+ speed +')\n';
   return code;
 };
+Blockly.Python['right'] = function(block) {
+  let speed = block.getFieldValue('speed');
+  Blockly.Python.definitions_['import_lib'] = 'import simobot';
+  var code = '\nsimobot.catMove.stopMotor("both")';
+  code+='\nsimobot.catMove.startMotor(1, "A",'+ speed +')\n';
+  return code;
+};
+Blockly.Python['left'] = function(block) {
+  let speed = block.getFieldValue('speed');
+  Blockly.Python.definitions_['import_lib'] = 'import simobot';
+  var code = '\nsimobot.catMove.stopMotor("both")';
+  code+='\nsimobot.catMove.startMotor(1, "B",'+ speed +')\n';
+  return code;
+};
 Blockly.Python['go_forward_seconds'] = function(block) {
   let speed = block.getFieldValue('speed');
   let second = block.getFieldValue('second');
@@ -41,17 +55,27 @@ Blockly.Python['wait'] = function(block) {
   var code = '\nsleep('+second+')\n';
     return code;
 };
-Blockly.Python['light_led'] = function(block) {
-  let pin = block.getFieldValue('pin');
-  Blockly.Python.definitions_['import_pin'] = 'from machine import Pin, PWM';
-  var code = 'led'+ pin +'=Pin('+ pin +',Pin.OUT)';
-  code+='\nled'+ pin +'.value(1)\n';
+Blockly.Python['draw_pixels'] = function(block) {
+  let x = block.getFieldValue('x');
+  let y = block.getFieldValue('y');
+  Blockly.Python.definitions_['import_lib'] = 'import simobot';
+  var code = '\nsimobot.catFace.oled.pixel('+x+', '+y+', 1)';
+  code+='\nsimobot.catFace.oled.show()\n';
   return code;
 };
 
-Blockly.Python['light_onboard_led'] = function(block) {
-  Blockly.Python.definitions_['import_pin'] = 'from machine import Pin, PWM';
-  var code = 'led25=Pin(25,Pin.OUT)';
-  code+='\nled25.value(1)\n';
+Blockly.Python['draw_text'] = function(block) {
+  let x = block.getFieldValue('y');
+  let y = block.getFieldValue('x');
+  let text = block.getFieldValue('text');
+  Blockly.Python.definitions_['import_lib'] = 'import simobot';
+  var code = '\nsimobot.catFace.oled.text("'+text+'",'+x+', '+y+', 1)';
+  code+='\nsimobot.catFace.oled.show()\n';
+  return code;
+};
+
+Blockly.Python['clean_screen'] = function(block) {
+  Blockly.Python.definitions_['import_lib'] = 'import simobot';
+  var code = '\nsimobot.catFace.oled.fill(0)';
   return code;
 };

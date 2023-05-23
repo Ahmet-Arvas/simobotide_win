@@ -23,7 +23,7 @@ html,body{
 }
 
 .customScrollbar::-webkit-scrollbar, .xterm-viewport::-webkit-scrollbar, .cm-scroller::-webkit-scrollbar{
-  width: 5px;
+  width: 10px;
   height: 5px;
 }
 .customScrollbar::-webkit-scrollbar-track, .xterm-viewport::-webkit-scrollbar-track, .cm-scroller::-webkit-scrollbar-track{

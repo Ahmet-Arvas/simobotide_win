@@ -54,10 +54,32 @@
       <aside id="aside">
         <div id="edu_head">
             <i class='bx bx-book-content bx-md' ></i>
-            <span>Micropython Guide</span>
+            <span>Temel Simobot Kodları</span>
         </div>
         <div id="edu_content" class="customScrollbar">
-          There is for Micropython explanation.
+          <h1>Kedi Fonksiyonları</h1>
+
+          <h2>display Sınıfı</h2>
+          <p><span class="function">drawNeutralFace()</span> - Nötr yüz ifadesini çizer.</p>
+          <p><span class="function">drawMeow()</span> - "meow" yazısını ekrana çizer ve bir saniye bekler.</p>
+          <p><span class="function">drawText(text, s)</span> - Belirtilen metni ekrana çizer ve saniye cinsinden belirtilen süre boyunca bekler.</p>
+          <p><span class="function">openMouth()</span> - Açık ağız ifadesini çizer.</p>
+          <p><span class="function">blink()</span> - Gözleri yanıp sönen ifadeyi çizer.</p>
+          <p><span class="function">move()</span> - Ekrandaki içeriği biraz hareket ettirir.</p>
+        
+          <h2>movements Sınıfı</h2>
+          <p><span class="function">startMotor(direction, motor = "both", speed = 100, delayForSeconds = 0)</span> - Belirtilen yönde ve hızda bir motoru başlatır.</p>
+          <p><span class="function">stopMotor(motor)</span> - Belirtilen motoru durdurur.</p>
+          <p><span class="function">left()</span> - Sola döner.</p>
+          <p><span class="function">right()</span> - Sağa döner.</p>
+          <p><span class="function">up()</span> - Yukarı hareket eder.</p>
+          <p><span class="function">down()</span> - Aşağı hareket eder.</p>
+          <p><span class="function">getArrayMoves(array)</span> - Belirtilen bir dizi hareketi gerçekleştirir.</p>
+        
+          <h2>headMovements Sınıfı</h2>
+          <p><span class="function">unhappy()</span> - Üzgün ifadeyi oluşturur.</p>
+          <p><span class="function">happy()</span> - Mutlu ifadeyi oluşturur.</p>
+        
         </div>
         <br>
         <a id="close_aside" class="close_aside" id="close_aside"><i class='bx bx-dots-vertical-rounded' style="font-size: 40px; position: absolute;"></i></a>
