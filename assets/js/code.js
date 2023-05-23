@@ -2,53 +2,45 @@ const Blockly = require('blockly')
 
 Blockly.Python['go_forward'] = function(block) {
     let speed = block.getFieldValue('speed');
-    Blockly.Python.definitions_['import_pin'] = 'from machine import Pin, PWM';
-    Blockly.Python.definitions_['define_motor_pin'] = "\nina1 = Pin(18,Pin.OUT)\nina2 = Pin(17, Pin.OUT)\npwma = PWM(Pin(16))\npwma.freq(1000)\ninb1 = Pin(19,Pin.OUT)\ninb2 = Pin(20, Pin.OUT)\npwmb = PWM(Pin(21))\npwmb.freq(1000)\n"
-    var code = 'ina1.value(1)';
-    code+='\nina2.value(0)';
-    code+='\nduty_16 = int(('+ speed +'*65536)/100)';
-    code+='\npwma.duty_u16(duty_16)';
-    code+='\ninb1.value(1)';
-    code+='\ninb2.value(0)';
-    code+='\npwmb.duty_u16(duty_16)\n';
+    Blockly.Python.definitions_['import_lib'] = 'import simobot';
+    var code = '\nsimobot.catMove.stopMotor("both")';
+    code+='\nsimobot.catMove.startMotor(1, "both",'+ speed +')\n';
     return code;
 };
-
+Blockly.Python['go_backward'] = function(block) {
+  let speed = block.getFieldValue('speed');
+  Blockly.Python.definitions_['import_lib'] = 'import simobot';
+  var code = '\nsimobot.catMove.stopMotor("both")';
+  code+='\nsimobot.catMove.startMotor(0, "both",'+ speed +')\n';
+  return code;
+};
 Blockly.Python['go_forward_seconds'] = function(block) {
   let speed = block.getFieldValue('speed');
   let second = block.getFieldValue('second');
-  Blockly.Python.definitions_['import_pin'] = 'from machine import Pin, PWM';
-  Blockly.Python.definitions_['import_utime_sleep'] = 'from utime import sleep';
-  Blockly.Python.definitions_['define_motor_pin'] = "\nina1 = Pin(18,Pin.OUT)\nina2 = Pin(17, Pin.OUT)\npwma = PWM(Pin(16))\npwma.freq(1000)\ninb1 = Pin(19,Pin.OUT)\ninb2 = Pin(20, Pin.OUT)\npwmb = PWM(Pin(21))\npwmb.freq(1000)\n"
+  let direction = block.getFieldValue('direction');
+  Blockly.Python.definitions_['import_lib'] = 'import simobot';
 
-  var code='ina1.value(1)';
-  code+='\nina2.value(0)';
-  code+='\nduty_16 = int(('+ speed +'*65536)/100)';
-  code+='\npwma.duty_u16(duty_16)';
-  code+='\ninb1.value(1)';
-  code+='\ninb2.value(0)';
-  code+='\npwmb.duty_u16(duty_16)';
-  code+='\nsleep(' + second + ')';
-  code+='\nina1.value(0)';
-  code+='\nina2.value(0)';
-  code+='\ninb1.value(0)';
-  code+='\ninb2.value(0)';
-  code+='\npwma.duty_u16(0)\n';
-  return code;
+  var code = '\nsimobot.catMove.stopMotor("both")';
+    code+='\nsimobot.catMove.startMotor('+ direction +', "both",'+ speed +','+ second +')\n';
+    return code;
 };
 
 Blockly.Python['stop_motors'] = function(block) {
-  Blockly.Python.definitions_['import_pin'] = 'from machine import Pin, PWM';
-  Blockly.Python.definitions_['define_motor_pin'] = "\nina1 = Pin(18,Pin.OUT)\nina2 = Pin(17, Pin.OUT)\npwma = PWM(Pin(16))\npwma.freq(1000)\ninb1 = Pin(19,Pin.OUT)\ninb2 = Pin(20, Pin.OUT)\npwmb = PWM(Pin(21))\npwmb.freq(1000)\n"
-  var code = 'ina1.value(0)';
-  code+='\nina2.value(0)';
-  code+='\npwma.duty_u16(0)';
-  code+='\ninb1.value(0)';
-  code+='\ninb2.value(0)';
-  code+='\npwmb.duty_u16(0)\n';
-  return code;
-};
+  let motor = block.getFieldValue('motor');
+  Blockly.Python.definitions_['import_lib'] = 'import simobot';
 
+  var code = '\nsimobot.catMove.stopMotor("'+motor+'")\n';
+    return code;
+};
+Blockly.Python['wait'] = function(block) {
+  let second = block.getFieldValue('second');
+  Blockly.Python.definitions_['import_lib'] = 'import simobot';
+  Blockly.Python.definitions_['import_sleep'] = 'from utime import sleep';
+
+
+  var code = '\nsleep('+second+')\n';
+    return code;
+};
 Blockly.Python['light_led'] = function(block) {
   let pin = block.getFieldValue('pin');
   Blockly.Python.definitions_['import_pin'] = 'from machine import Pin, PWM';

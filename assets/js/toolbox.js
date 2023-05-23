@@ -1,14 +1,17 @@
 var xmltext = `
-<category name="Action" colour="#4A90E2">
+<category name="Hareket" colour="#4A90E2">
     <block type="go_forward"></block>
+    <block type="go_backward"></block>
+
     <block type="go_forward_seconds"></block>
     <block type="stop_motors"></block>
 </category>
-<category name="Show" colour="#9013FE">
+<category name="Göster" colour="#9013FE">
     <block type="light_led"></block>
     <block type="light_onboard_led"></block>
 </category>
-<category name="Controls" colour="%{BKY_LOGIC_HUE}">
+<category name="Kontroller" colour="%{BKY_LOGIC_HUE}">
+    <block type="wait"></block>
     <block type="controls_if"></block>
     <block type="controls_repeat_ext">
       <value name="TIMES">

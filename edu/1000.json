@@ -5,14 +5,18 @@
     },
     {
       "title": "Fullscreen",
-      "content": "<div id='edu_head'><i class='bx bx-book-content bx-md' ></i><span>Motorlar ve Hareket</span></div><div id='edu_content' style='display: flex; flex-direction: column; align-items: center;' class='customScrollbar'><img style='height:50vh; border-radius: 10px;' src='edu/images/robot.gif'><br><p style='width: 70%;'>Merhaba bu derste motorların ne olduğunu motorlar ile Simobot'u kodlayarak nasıl hareket ettirebileceğimizi göreceğiz.</p> </div>"
+      "content": "<div id='edu_head'><i class='bx bx-book-content bx-md' ></i><span>Motorlar ve Hareket</span></div><div id='edu_content' style='display: flex; flex-direction: column; align-items: center;' class='customScrollbar'><img style='height:50vh; border-radius: 10px;' src='edu/images/tracks.gif'><br><p style='width: 70%;'>Paletli tekerlekler, robotun hareketini sağlayan önemli bileşenlerdir. Her iki tarafında birer paletli tekerlek bulunur. Paletli tekerlekler, robotun zemin üzerinde düzgün bir şekilde hareket etmesini sağlar ve manevra kabiliyetini artırır. Paletleri hareket ettiren redüktörlü motorlar, bir motor ve bir dişli sistemi kombinasyonundan oluşur. Dişli sistemi, motorun yüksek devirli çıkışını düşük devirli bir çıkışa dönüştürerek daha fazla tork üretmesini sağlar. Bu sayede robot, zorlu yüzeylerde veya yokuş yukarı hareket ederken daha iyi performans gösterebilir.</p> </div>"
     },
     {
       "title": "Normal",
-      "content": "<h2>Page 2 Content</h2><p>This is the content of Page 2.</p>"
+      "content": "<div id='edu_head'><i class='bx bx-book-content bx-md' ></i><span>Motorlar ve Hareket</span></div><div id='edu_content' style='display: flex; flex-direction: column; align-items: center;' class='customScrollbar'>Küçük robotumuz programlanabilir özelliklere sahiptir. Programlama dilleri, robotun istenen davranışları sergilemesini sağlar. Örneğin, soldaki bloklari kullanarak robotun belirli bir mesafeye gitmesini, dönmesini veya durmasını programlayabiliriz. Aşağıda gösterilen bloğu hareket sekmesinden bulup çalışma ekranına çekin.<br> <img style='width:50%; border-radius: 10px;' src='edu/images/ileriGit.jpg'> <br> Bloğu istediğiniz hız aralığına çektikten sonra yukarıdan Simobotun bilgisayara bağlandığı Port'u seçin ve robotu gözlemleyin. Bunlar temel hareket bloklarıdır sol ve sağ motorlarını çalıştır bloklarını da denemelisin</p> </div>"
     },
     {
-      "title": "Fullscreen",
-      "content": "<h2>Page 3 Content</h2><p>This is the content of Page 3.</p>"
+      "title": "Normal",
+      "content": "<div id='edu_head'><i class='bx bx-book-content bx-md' ></i><span>Motorlar ve Hareket</span></div><div id='edu_content' style='display: flex; flex-direction: column; align-items: center;' class='customScrollbar'>Tekerlerin kontrölünü tam olarak yapabilmek için ne kadar ilerleyeceğini kodlamalıyız. Aşağıdaki blok ile kaç saniye boyunca nereye hangi hızla robotun hareket etmesini sağlayabilirsiniz.<br> <img style='width:100%; border-radius: 10px;' src='edu/images/saniyeGit.jpg'> <br> Bloğu istediğiniz hız aralığına çektikten sonra yukarıdan Simobotun bilgisayara bağlandığı Port'u seçin ve robotu gözlemleyin. Bunu daha da kontrollü yapabimek için aşağıdaki Kontroller kısmındaki saniye bekle bloğunu hareket et ve durdur bloğunun ortasına koy. <img style='width:60%; border-radius: 10px;' src='edu/images/manual.jpg'></p> </div>"
+    },
+    {
+      "title": "Normal",
+      "content": "<div id='edu_head'><i class='bx bx-book-content bx-md' ></i><span>Motorlar ve Hareket</span></div><div id='edu_content' style='display: flex; flex-direction: column; align-items: center;' class='customScrollbar'><img style='width:50%; border-radius: 10px;' src='edu/images/congrats.png'> <br> Tebrikler 'Motorlar ve Hareket' dersini bitirdin </div>"
     }
   ]
