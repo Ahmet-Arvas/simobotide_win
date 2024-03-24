@@ -29,7 +29,7 @@
     ],
     "devDependencies": {
         "electron": "^19.0.6",
-        "electron-builder": "^23.1.0"
+        "electron-builder": "^24.13.3"
     },
     "scripts": {
         "pack": "electron-builder --win",
